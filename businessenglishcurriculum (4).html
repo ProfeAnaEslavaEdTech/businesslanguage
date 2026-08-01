@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business English Curriculum · MLLDE-aligned</title>
+<meta name="description" content="A CEFR-anchored Business English curriculum designed with the MLLDE method — CLIL 4Cs, IPO lesson cycle, mode × competence alignment.">
+<style>
+  /* Light (default). --soft raised to #5f6480 → 5.8:1 on white (WCAG AA). --accent = accessible text-accent. */
+  :root{
+    --ink:#1c1e2e; --mut:#5b5f77; --soft:#5f6480;
+    --indigo:#3B5BD6; --accent:#3B5BD6; --violet:#7C6CE8; --teal:#0c7d72;
+    --line:#e6e8f2; --bg:#f7f8fc; --card:#ffffff; --chip:#eef1fb;
+    --rose:#fff1f2; --roseln:#fecdd3; --sky:#eff6ff; --skyln:#bfdbfe;
+    --amber:#fffbeb; --amberln:#fde68a; --violetbg:#f5f3ff; --violetln:#ddd6fe;
+  }
+  /* Dark values — shared by the OS preference (unless the user forced light) and by an explicit toggle.
+     --accent lightened to #9db2ff and --violet to #a99cff so accent-as-text clears AA on the dark card. */
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){ --ink:#eef0f8; --mut:#aeb3cc; --soft:#9096b3; --indigo:#3B5BD6; --accent:#9db2ff; --violet:#a99cff; --teal:#2dd4bf; --line:#2a2d44; --bg:#0f1120; --card:#171a2b; --chip:#1e2138;
+      --rose:#2a1720; --roseln:#5b2233; --sky:#122033; --skyln:#1e3a5f; --amber:#2a2410; --amberln:#5b4d1a; --violetbg:#1c1733; --violetln:#3a2f5f; }
+  }
+  :root[data-theme="dark"]{ --ink:#eef0f8; --mut:#aeb3cc; --soft:#9096b3; --indigo:#3B5BD6; --accent:#9db2ff; --violet:#a99cff; --teal:#2dd4bf; --line:#2a2d44; --bg:#0f1120; --card:#171a2b; --chip:#1e2138;
+    --rose:#2a1720; --roseln:#5b2233; --sky:#122033; --skyln:#1e3a5f; --amber:#2a2410; --amberln:#5b4d1a; --violetbg:#1c1733; --violetln:#3a2f5f; }
+  /* Theme toggle */
+  .theme-toggle{position:fixed;top:14px;right:14px;z-index:100;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:19px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(20,30,80,.14)}
+  .theme-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  @media print{.theme-toggle{display:none}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;font-size:16px}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 22px 80px}
+  h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;line-height:1.15;letter-spacing:-.01em}
+  .serif{font-family:Fraunces,Georgia,serif}
+  a{color:var(--accent)}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;border-radius:22px;padding:34px 30px;margin-bottom:30px}
+  .hero .kick{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin:0 0 8px}
+  .hero h1{font-size:clamp(28px,5vw,42px);margin:0 0 10px;color:#fff}
+  .hero p{margin:0;max-width:60ch;opacity:.95}
+  .hero .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:4px 11px;border-radius:99px;font-size:12.5px;font-weight:600}
+  /* Sections */
+  section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 26px;margin-bottom:22px;box-shadow:0 4px 20px rgba(20,30,80,.04)}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--indigo);color:#fff;font-size:14px;font-weight:800;margin-right:10px}
+  section > h2{font-size:22px;margin:0 0 4px;display:flex;align-items:center}
+  .lead{color:var(--mut);margin:0 0 18px;font-size:15px}
+  .callout{border-left:3px solid var(--teal);background:var(--chip);padding:12px 16px;border-radius:10px;color:var(--mut);font-size:14.5px;margin:0 0 6px}
+  /* Tables */
+  .tbl{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);font-weight:700}
+  tbody tr:last-child td{border-bottom:0}
+  .lvl{font-weight:800;color:var(--accent);white-space:nowrap}
+  .star{color:var(--violet)}
+  /* Chips / 4Cs */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .cc{border-radius:12px;padding:14px;border:1px solid}
+  .cc.content{background:var(--rose);border-color:var(--roseln)}
+  .cc.comm{background:var(--sky);border-color:var(--skyln)}
+  .cc.cog{background:var(--violetbg);border-color:var(--violetln)}
+  .cc.cult{background:var(--amber);border-color:var(--amberln)}
+  .cc b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-bottom:4px}
+  .cc span{font-size:14px;color:var(--ink)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:var(--chip);border:1px solid var(--line);padding:3px 9px;border-radius:99px;margin:2px 4px 2px 0}
+  .pill-list{margin:8px 0 0;padding:0;list-style:none}
+  .pill-list li{margin:6px 0;padding-left:20px;position:relative;font-size:14.5px;color:var(--mut)}
+  .pill-list li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .chunkline{font-weight:600;color:var(--ink)}
+  /* Rubric checkboxes */
+  .rubric td:last-child{width:60px;text-align:center;font-size:18px}
+  .foot{color:var(--soft);font-size:13px;text-align:center;margin-top:26px;line-height:1.7}
+  code{background:var(--chip);padding:1px 6px;border-radius:6px;font-size:13px}
+  @media print{ body{background:#fff} section{box-shadow:none;break-inside:avoid} .hero{background:#3B5BD6 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact} }
+  /* Tabs */
+  .tabnav{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+  .tabnav button{font-family:inherit;font-size:14px;font-weight:700;color:var(--mut);background:var(--card);border:1px solid var(--line);padding:10px 18px;border-radius:12px;cursor:pointer;transition:.15s}
+  .tabnav button[aria-selected="true"]{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+  .panel[hidden]{display:none}
+  /* Builder form */
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .fgrid > label,.fld{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--mut)}
+  input[type=text],select,textarea{font-family:inherit;font-size:14px;font-weight:400;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;outline:none;width:100%}
+  input[type=text]:focus,select:focus,textarea:focus{border-color:var(--indigo);box-shadow:0 0 0 3px rgba(59,91,214,.2)}
+  textarea{resize:vertical;min-height:60px}
+  .radios{display:flex;gap:16px}
+  .radios label{flex-direction:row;align-items:center;gap:6px;display:flex;font-weight:600;color:var(--ink)}
+  .chipgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin-top:4px}
+  .chk{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
+  .chk input{margin-top:2px;accent-color:var(--indigo)}
+  .chk small{display:block;color:var(--soft);font-weight:400;font-size:11.5px}
+  section h3{font-size:14px;margin:16px 0 4px;color:var(--ink)}
+  .phase{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border-bottom:0}
+  .phase .pn{font-weight:700;font-size:13.5px;color:var(--ink)}
+  .phase .pcol{display:flex;flex-direction:column;gap:8px}
+  .phase .pt{display:inline-block;margin-top:5px;font-size:11px;font-weight:800;color:var(--accent);background:var(--chip);padding:2px 8px;border-radius:99px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+  .actions button{font-family:inherit;font-size:14px;font-weight:800;padding:11px 18px;border-radius:12px;border:0;cursor:pointer}
+  #btnJson{background:var(--indigo);color:#fff}
+  #btnPdf{background:var(--teal);color:#fff}
+  #btnReset{background:var(--chip);color:var(--mut)}
+  .cando-item{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .cando-item input{margin-top:3px;accent-color:var(--indigo)}
+  .cando-item .sk{font-size:10px;font-weight:800;text-transform:uppercase;color:var(--soft);background:var(--chip);padding:2px 7px;border-radius:99px;white-space:nowrap}
+  /* Print isolation for the plan */
+  #planPrint{display:none}
+  @media print{
+    body.print-plan .hero,body.print-plan .callout,body.print-plan .tabnav,body.print-plan .panel,body.print-plan .foot{display:none !important}
+    body.print-plan #planPrint{display:block !important;color:#111}
+    #planPrint h1{font-size:24px;margin:0 0 4px}
+    #planPrint h3{font-size:14px;margin:14px 0 6px}
+    #planPrint .pp-sec{break-inside:avoid;margin:0 0 12px}
+    #planPrint table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+    #planPrint th,#planPrint td{border:1px solid #bbb;padding:6px 8px;text-align:left;vertical-align:top}
+    #planPrint ul{margin:4px 0 0 18px;padding:0}
+  }
+</style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+<script>
+(function(){var root=document.documentElement,KEY='be_theme',s=null;try{s=localStorage.getItem(KEY);}catch(e){}
+if(s==='dark'||s==='light')root.setAttribute('data-theme',s); // apply now, before paint
+function upd(){var d=root.getAttribute('data-theme'),isDark=d==='dark'||(!d&&window.matchMedia('(prefers-color-scheme:dark)').matches),b=document.getElementById('themeToggle');if(b){b.textContent=isDark?'☀️':'🌙';b.setAttribute('aria-label',isDark?'Switch to light mode':'Switch to dark mode');b.setAttribute('aria-pressed',String(isDark));}}
+document.addEventListener('DOMContentLoaded',function(){upd();document.getElementById('themeToggle').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),next=cur==='dark'?'light':'dark';try{localStorage.setItem(KEY,next);}catch(e){}root.setAttribute('data-theme',next);upd();});});})();
+</script>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="kick">Curriculum Design · MLLDE-aligned</p>
+    <h1>Business English</h1>
+    <p>A CEFR-anchored curriculum built with the MLLDE method — the four-layer model, CLIL 4Cs, and the IPO lesson cycle — mapped scenario-by-scenario from A2 to C1. Language-agnostic method, filled with Business English data.</p>
+    <div class="meta">
+      <span>CEFR A2 → C1</span><span>CLIL 4Cs</span><span>IPO lesson cycle</span><span>12 units</span><span>Mediation @ B2+</span><span>No AI-voice component</span>
+    </div>
+  </header>
+
+  <div class="tabnav" role="tablist" aria-label="Views">
+    <button type="button" role="tab" aria-selected="true" data-panel="panel-curriculum">📘 Curriculum</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="panel-builder">🛠️ Lesson-plan builder</button>
+  </div>
+
+  <div id="panel-curriculum" class="panel">
+  <div class="callout"><b>Golden rule applied.</b> The method is language-agnostic: the <em>levels</em> and <em>can-do targets</em> come from CEFR (universal); only the <em>filling</em> — vocabulary, functions, grammar, culture — is Business English. The mandatory "Don't give up!" step is delivered as a <strong>rubric + teacher/self-check</strong> — no AI mentor.</div>
+
+  <!-- 1 ALIGNMENT -->
+  <section>
+    <h2><span class="num">1</span>The alignment</h2>
+    <p class="lead">MLLDE plugs a universal standard into a per-language content reference. For English, the analog to Spanish's <em>Plan curricular del Instituto Cervantes</em> is English Profile + Cambridge Business English.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>MLLDE layer</th><th>Business English anchor</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><b>Standard</b> — what &amp; how far</td><td>CEFR levels <b>A2 → C1</b> (business band)</td><td>Council of Europe, CEFR Companion Volume (2020)</td></tr>
+        <tr><td><b>Content reference</b> — words/grammar/functions</td><td><b>English Profile</b> — Vocabulary (EVP) + Grammar (EGP) Profiles</td><td>englishprofile.org</td></tr>
+        <tr><td><b>Domain reference</b> — business can-do</td><td><b>Cambridge Business English</b> — BEC Preliminary (B1) · Vantage (B2) · Higher (C1); Linguaskill Business</td><td>Cambridge Assessment English</td></tr>
+        <tr><td><b>Method</b> — target → lesson</td><td>MLLDE IPO cycle + CLIL 4Cs + SAM build</td><td>MLLDE Master Document</td></tr>
+        <tr><td><b>Product</b></td><td>The 12 Business English units below</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lead" style="margin-top:16px;margin-bottom:0">Every unit is specified against the CEFR <b>four modes</b> (Reception · Production · Interaction · Mediation) and <b>three competences</b> (Linguistic · Sociolinguistic · Pragmatic). <b>Mediation enters at B2+.</b></p>
+  </section>
+
+  <!-- 2 TEMPLATE -->
+  <section>
+    <h2><span class="num">2</span>Standing planning template</h2>
+    <p class="lead">Every unit is planned on this template before build — guaranteeing CEFR alignment.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Mode</th><th>What the unit does</th><th>Applies at</th></tr></thead>
+      <tbody>
+        <tr><td><b>Reception</b></td><td>listening/reading business input (emails, briefings, calls)</td><td>A2+</td></tr>
+        <tr><td><b>Production</b></td><td>spoken/written monologue (a pitch, a summary email)</td><td>A2+</td></tr>
+        <tr><td><b>Interaction</b></td><td>spoken/written exchange (meeting, negotiation, call)</td><td>A2+</td></tr>
+        <tr><td><b>Mediation</b></td><td>relay/explain/simplify (summarise a report, brief a colleague)</td><td><b>B2+</b></td></tr>
+      </tbody>
+    </table></div>
+    <p class="lead" style="margin-top:16px;margin-bottom:0"><b>Mandatory components (non-negotiable):</b> an authentic-assessment <b>Mission</b> + the <b>"Don't give up!" Immediate Assessment</b> (non-punitive amber feedback, specific + example, unlimited retry). Delivered here via rubric + teacher/self-check.</p>
+  </section>
+
+  <!-- 3 CURRICULUM MAP -->
+  <section>
+    <h2><span class="num">3</span>Curriculum map · A2 → C1</h2>
+    <p class="lead">Business scenarios sequenced by CEFR level. Each is a "destination" the MLLDE engine fills.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Level</th><th>Unit (scenario)</th><th>Core can-do target</th><th>Mode focus</th></tr></thead>
+      <tbody>
+        <tr><td class="lvl">A2</td><td>1 · First introductions &amp; small talk</td><td>Introduce self/role; simple small talk</td><td>Interaction</td></tr>
+        <tr><td class="lvl">A2</td><td>2 · Simple business emails</td><td>Write a short, clear request or reply</td><td>Production</td></tr>
+        <tr><td class="lvl">B1</td><td>3 · <b>Project kick-off meeting</b> <span class="star">★</span></td><td>Open/chair a meeting; assign tasks; agree next steps</td><td>Interaction</td></tr>
+        <tr><td class="lvl">B1</td><td>4 · Telephoning &amp; scheduling</td><td>Make/take a call; arrange &amp; change appointments</td><td>Interaction</td></tr>
+        <tr><td class="lvl">B1</td><td>5 · Describing company, role &amp; product</td><td>Give a short factual monologue about work</td><td>Production</td></tr>
+        <tr><td class="lvl">B2</td><td>6 · Meetings &amp; decision-making</td><td>Express/support opinions; agree/disagree diplomatically</td><td>Interaction</td></tr>
+        <tr><td class="lvl">B2</td><td>7 · Negotiating a deal</td><td>Bargain; make/reject offers; reach compromise</td><td>Interaction</td></tr>
+        <tr><td class="lvl">B2</td><td>8 · Presentations</td><td>Structure &amp; deliver a clear presentation with Q&amp;A</td><td>Production</td></tr>
+        <tr><td class="lvl">B2</td><td>9 · Handling complaints &amp; problems</td><td>Manage a complaint; propose a solution</td><td>Interaction + Mediation</td></tr>
+        <tr><td class="lvl">C1</td><td>10 · Strategic negotiation &amp; influence</td><td>Negotiate persuasively; handle objections; close</td><td>Interaction</td></tr>
+        <tr><td class="lvl">C1</td><td>11 · Persuasive presentations &amp; pitches</td><td>Pitch convincingly; field tough questions</td><td>Production</td></tr>
+        <tr><td class="lvl">C1</td><td>12 · Reporting &amp; briefing</td><td>Summarise a report; brief others across teams/cultures</td><td><b>Mediation</b></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 4 FLAGSHIP -->
+  <section>
+    <h2><span class="num">4</span>Flagship unit · B1 "Kicking Off the Project" <span class="star">★</span></h2>
+    <p class="lead">Scenario: chairing a project kick-off with a cross-functional team · CEFR B1. Modes: Reception (model dialogue) · Production (follow-up email / spoken summary) · Interaction (the chairing mission). Mediation: not yet (enters at B2).</p>
+
+    <div class="grid2">
+      <div class="cc content"><b>Content</b><span>Project basics: agenda, milestone, deliverable, stakeholder, action item, deadline.</span></div>
+      <div class="cc comm"><b>Communication</b><span>Chairing language — opening, handing over, moving on, assigning, summarising.</span></div>
+      <div class="cc cog"><b>Cognition</b><span>Sequencing an agenda; prioritising action items by owner and deadline.</span></div>
+      <div class="cc cult"><b>Culture</b><span>Meeting etiquette in international teams; diplomatic vs. direct register; turn-taking.</span></div>
+    </div>
+
+    <div style="margin-top:18px"></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Competence</th><th>Business English items realised</th></tr></thead>
+      <tbody>
+        <tr><td><b>Pragmatic</b><br>(functions)</td><td>Opening a meeting · managing the agenda (moving on) · assigning tasks · summarising · agreeing next steps</td></tr>
+        <tr><td><b>Linguistic</b><br>(grammar/lexis)</td><td>Present simple for agenda/facts; <em>will</em> for offers/decisions; polite question forms; project lexis (agenda, milestone, deliverable, stakeholder, action item, deadline)</td></tr>
+        <tr><td><b>Sociolinguistic</b></td><td>Register: <em>"Could you…?" / "Would you mind…?"</em> vs. bare imperatives; punctuality &amp; turn-taking in international teams</td></tr>
+      </tbody>
+    </table></div>
+
+    <ul class="pill-list" style="margin-top:16px">
+      <li><b>Vocabulary:</b> agenda · milestone · deliverable · stakeholder · action item · deadline</li>
+      <li><b>Chunks:</b> <span class="chunkline">"Let's get started, shall we?" · "Let's move on to…" · "Could you take care of…?" · "I'd like to hand over to…" · "To sum up, …" · "Let's schedule a follow-up for…"</span></li>
+      <li><b>Mission (authentic assessment):</b> chair a 3-turn kick-off — state the objective, assign <b>≥2 action items</b> with named owners + deadlines, and agree the next meeting.</li>
+      <li><b>"Don't give up!" (Immediate Assessment):</b> learner writes/says a chairing turn; checked against target chunks + a minimum-length gate; feedback in <b>amber</b> (never red), specific with an example, <b>unlimited retry</b>. Success → coins + "Project Launch" badge. Rubric-based; no AI mentor.</li>
+      <li><b>Culture &amp; pragmatics:</b> diplomatic &gt; blunt; start/end on time; hand over clearly on calls.</li>
+    </ul>
+
+    <div style="margin-top:16px"></div>
+    <div class="tbl"><table>
+      <thead><tr><th>IPO step</th><th>Mode</th><th>Competence</th></tr></thead>
+      <tbody>
+        <tr><td>Arrival (hook + objective)</td><td>—</td><td>sets scenario</td></tr>
+        <tr><td>Vocabulary</td><td>Reception</td><td>Linguistic</td></tr>
+        <tr><td>Chunks</td><td>Reception/Production</td><td>Linguistic + Pragmatic</td></tr>
+        <tr><td>Model dialogue</td><td>Reception</td><td>Linguistic + Sociolinguistic</td></tr>
+        <tr><td>Gap-fill</td><td>Processing</td><td>Linguistic (formative)</td></tr>
+        <tr><td>Mission</td><td>Interaction</td><td>Pragmatic + Sociolinguistic</td></tr>
+        <tr><td><b>Don't give up! <span class="star">★</span></b></td><td>Production</td><td>all three</td></tr>
+        <tr><td>Culture cards</td><td>—</td><td>Sociolinguistic</td></tr>
+        <tr><td>Rewards</td><td>—</td><td>motivation</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 5 LIGHTER SPECS -->
+  <section>
+    <h2><span class="num">5</span>Unit specs (anchor targets)</h2>
+    <p class="lead">Each follows the same template; anchor targets, functions and mediation notes to fill on build.</p>
+    <ul class="pill-list">
+      <li><b>A2 · Introductions &amp; small talk</b> — Interaction. Greeting, introducing self/others, asking about role/company, safe topics. Formal vs. first-name cultures.</li>
+      <li><b>A2 · Simple emails</b> — Production (written). Request, reply, thank; email openings/closings, <em>please/could</em>.</li>
+      <li><b>B1 · Telephoning &amp; scheduling</b> — Interaction. Identifying self, connecting, arranging/changing times: <em>"Could I speak to…?", "Would Thursday suit you?"</em></li>
+      <li><b>B1 · Describing company/role/product</b> — Production. Responsibilities, company facts, product features; present simple, comparatives.</li>
+      <li><b>B2 · Meetings &amp; decision-making</b> — Interaction. Giving/supporting opinion, agreeing/disagreeing <b>diplomatically</b>, interrupting politely; hedging.</li>
+      <li><b>B2 · Negotiating</b> — Interaction. Proposing, conditional bargaining (<em>If you…, we could…</em>), rejecting softly, compromising; conditionals.</li>
+      <li><b>B2 · Presentations</b> — Production. Signposting, describing trends/data, handling Q&amp;A; intro–body–close.</li>
+      <li><b>B2 · Handling complaints</b> — Interaction + <b>Mediation (entry)</b>. Apologising, clarifying, proposing solutions; mediating client ↔ internal team.</li>
+      <li><b>C1 · Strategic negotiation</b> — Interaction. Framing, managing objections, trading concessions, closing; tone control.</li>
+      <li><b>C1 · Persuasive pitches</b> — Production. Persuasion, rhetorical structure, anticipating challenge; call to action.</li>
+      <li><b>C1 · Reporting &amp; briefing</b> — <b>Mediation (flagship)</b>. Summarise a long report, simplify for a non-expert, brief across teams/cultures.</li>
+    </ul>
+  </section>
+
+  <!-- 6 ASSESSMENT -->
+  <section>
+    <h2><span class="num">6</span>Assessment &amp; feedback</h2>
+    <p class="lead">Per MLLDE §8 — minus the AI mentor.</p>
+    <ul class="pill-list">
+      <li><b>Authentic assessment = the gate.</b> Mastery of the real-world Mission, not a test score.</li>
+      <li><b>Feedback ladder → human.</b> Self-check against a rubric → peer/teacher feedback → optional recorded model answer.</li>
+      <li><b>"Don't give up!" kept.</b> Errors in <b>amber with 🤔</b>, never red; specific + example; retry always offered; success celebrated (coins + badge).</li>
+    </ul>
+    <h3 style="font-size:16px;margin:18px 0 8px">Sample Mission rubric — B1 Kick-off</h3>
+    <div class="tbl"><table class="rubric">
+      <thead><tr><th>Criterion</th><th>Met</th></tr></thead>
+      <tbody>
+        <tr><td>States the meeting objective clearly</td><td>☐</td></tr>
+        <tr><td>Assigns ≥2 action items with named owners</td><td>☐</td></tr>
+        <tr><td>Each action item has a deadline</td><td>☐</td></tr>
+        <tr><td>Uses ≥3 chairing chunks appropriately</td><td>☐</td></tr>
+        <tr><td>Closes by agreeing the next meeting</td><td>☐</td></tr>
+        <tr><td>Register is diplomatic (requests, not orders)</td><td>☐</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 7 BUILD ORDER -->
+  <section>
+    <h2><span class="num">7</span>Build order · SAM</h2>
+    <p class="lead">Produce with the Successive Approximation Model: prototype → review → refine.</p>
+    <ul class="pill-list">
+      <li><b>1.</b> B1 Project Kick-off (flagship, fully specified) — build first as the reference instance.</li>
+      <li><b>2.</b> B2 Negotiating + Presentations (highest workplace demand).</li>
+      <li><b>3.</b> A2 Introductions/Emails (on-ramp).</li>
+      <li><b>4.</b> C1 units + the C1 Mediation unit (top of the ladder).</li>
+    </ul>
+  </section>
+
+  <p class="foot">
+    CEFR (standard) → English Profile + Cambridge Business English (content) → MLLDE IPO + CLIL 4Cs (method) → 12 Business English units (product).<br>
+    Mediation deferred to B2+ · AI-voice/mentor deliberately omitted · formative feedback is rubric- and teacher-based.<br>
+    Designed with the MLLDE method · © 2026 Ana Eslava-Graterol (ProfeAnaEslavaEdTech).
+  </p>
+  </div><!-- /panel-curriculum -->
+
+  <!-- ═══════════ TAB 2 · LESSON-PLAN BUILDER ═══════════ -->
+  <div id="panel-builder" class="panel" hidden>
+    <section>
+      <h2><span class="num">A</span>Lesson details</h2>
+      <p class="lead">Fill the fields, choose your gamification, then export to <b>JSON</b> or <b>PDF</b>. Timings auto-scale between 30 and 60 minutes.</p>
+      <div class="fgrid">
+        <label>Lesson title <input id="f_title" type="text" placeholder="e.g. Kicking Off the Project"></label>
+        <label>CEFR level
+          <select id="f_level"><option>A2</option><option selected>B1</option><option>B2</option><option>C1</option></select>
+        </label>
+        <label>Business scenario <input id="f_scenario" type="text" placeholder="e.g. Project kick-off meeting"></label>
+        <div class="fld">Duration
+          <span class="radios">
+            <label><input type="radio" name="dur" value="30" checked> 30 min</label>
+            <label><input type="radio" name="dur" value="60"> 60 min</label>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">B</span>Can-do targets · Cambridge Business English</h2>
+      <p class="lead">Reference: ALTE / Cambridge English Business "Can Do" framework (occupational domain) — Business Preliminary (B1) · Vantage (B2) · Higher (C1). Tick the statements this lesson targets. <em>Verify exact wording against the official source.</em></p>
+      <div id="candoBox"></div>
+      <label class="fld" style="margin-top:12px">Additional / custom can-do <textarea id="f_cando" placeholder="Add or refine the target can-do statement…"></textarea></label>
+    </section>
+
+    <section>
+      <h2><span class="num">C</span>Gamification · mechanics &amp; dynamics</h2>
+      <p class="lead">The Werbach &amp; Hunter pyramid, top → bottom: <b>Dynamics</b> (the big-picture experience) → <b>Mechanics</b> (the processes that drive action) → <b>Components</b> (the concrete building blocks). Pick what this lesson uses at each level.</p>
+      <h3>🎭 Dynamics <span style="font-weight:400;color:var(--soft)">— the experience</span></h3>
+      <div id="dynBox" class="chipgrid"></div>
+      <h3>⚙️ Mechanics <span style="font-weight:400;color:var(--soft)">— the processes</span></h3>
+      <div id="mechBox" class="chipgrid"></div>
+      <h3>🧩 Components <span style="font-weight:400;color:var(--soft)">— the building blocks</span></h3>
+      <div id="compBox" class="chipgrid"></div>
+    </section>
+
+    <section>
+      <h2><span class="num">D</span>Lesson cycle (IPO) · activities &amp; timing</h2>
+      <p class="lead">MLLDE Input–Processing–Output cycle. Each phase shows its suggested time for the selected duration; fill the activity for each.</p>
+      <div id="phaseBox"></div>
+      <p id="timeTotal" class="tag" style="margin-top:12px"></p>
+    </section>
+
+    <section>
+      <h2><span class="num">E</span>Mission &amp; "Don't give up!"</h2>
+      <label class="fld">Mission — authentic task <textarea id="f_mission" placeholder="The real-world task the learner must complete to pass…"></textarea></label>
+      <label class="fld" style="margin-top:12px">"Don't give up!" — Immediate Assessment prompt <textarea id="f_ia" placeholder="Speak/Write prompt; non-punitive amber feedback + retry…"></textarea></label>
+      <label class="fld" style="margin-top:12px">Success criteria / rubric <textarea id="f_rubric" placeholder="What counts as success…"></textarea></label>
+    </section>
+
+    <div class="actions no-print">
+      <button id="btnJson" type="button">⬇️ Download JSON</button>
+      <button id="btnPdf" type="button">🖨️ Save as PDF</button>
+      <button id="btnReset" type="button">↺ Reset</button>
+    </div>
+  </div><!-- /panel-builder -->
+
+  <div id="planPrint"></div>
+
+</div>
+
+<script>
+"use strict";
+function ce(tag,cls,txt){ const n=document.createElement(tag); if(cls) n.className=cls; if(txt!=null) n.textContent=txt; return n; }
+function $(id){ return document.getElementById(id); }
+function val(id){ return ($(id)?.value||'').trim(); }
+
+/* ---- Tabs ---- */
+document.querySelectorAll('.tabnav button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabnav button').forEach(x=>x.setAttribute('aria-selected', x===b?'true':'false'));
+  document.querySelectorAll('.panel').forEach(p=>{ p.hidden = (p.id!==b.dataset.panel); });
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+/* ---- Data ---- */
+/* Werbach & Hunter gamification pyramid: Dynamics (abstract) → Mechanics (process) → Components (concrete) */
+const DYNAMICS=[['Constraints','limits & trade-offs'],['Emotions','curiosity, pride, joy'],['Narrative','a coherent story'],['Progression','sense of growth'],['Relationships','social bonds']];
+const MECHANICS=[['Challenges','tasks requiring effort'],['Chance','randomness'],['Competition','win/lose vs others'],['Cooperation','winning together'],['Feedback','instant response'],['Resource acquisition','gaining useful things'],['Rewards','benefits for actions'],['Transactions','trading / exchange'],['Turns','sequential participation'],['Win states','objective for winning']];
+const COMPONENTS=[['Achievements','defined objectives met'],['Avatars','visual identity'],['Badges','visual achievements'],['Boss fights','hard level gates'],['Collections','sets to complete'],['Combat','a defined battle'],['Content unlocking','earned access'],['Gifting','sharing rewards'],['Leaderboards','rankings'],['Levels','progression steps'],['Points / XP','numeric score'],['Quests','goal-driven missions'],['Social graph','peer network'],['Teams','groups working together'],['Virtual goods','assets with value']];
+const PHASES=[['Arrival / hook',3,5],['Vocabulary',4,8],['Chunks',4,8],['Model dialogue',3,6],['Gap-fill (Processing)',3,6],['Mission (Interaction)',6,12],["Don't give up! (Immediate Assessment)",4,8],['Culture & pragmatics',2,4],['Rewards / reflection',1,3]];
+/* Suggested activity options per phase (dropdown) */
+const PHASE_OPTS={
+  'Arrival / hook':['Warm-up question','Real-world scenario prompt','Image / video hook','Quick poll or quiz','Story / narrative set-up','Brainstorm / mind-map','Elicit prior knowledge'],
+  'Vocabulary':['Flashcards (dual-coding)','Match images to words','Word cloud','Realia / photos','Definition matching','Categorise / sort','Odd-one-out'],
+  'Chunks':['Drill & repeat','Substitution table','Chunk → function matching','Sentence building','Dialogue frames','Notice & highlight'],
+  'Model dialogue':['Listen & read','Gapped transcript','Role-play read-aloud','Order scrambled lines','Comprehension questions','Shadowing'],
+  'Gap-fill (Processing)':['Text gap-fill','Drag-and-drop','Multiple choice','Error correction','Sentence transformation','Running dictation'],
+  'Mission (Interaction)':['Role-play','Information-gap task','Simulation','Problem-solving task','Negotiation task','Meeting simulation','Interview task'],
+  "Don't give up! (Immediate Assessment)":['Written production + rubric','Spoken production (record)','Peer feedback','Self-check checklist','Retry with hints','Mini-presentation'],
+  'Culture & pragmatics':['Culture card discussion','Register comparison','Do’s & don’ts','Video clip analysis','Critical-incident reflection','Politeness / hedging focus'],
+  'Rewards / reflection':['Badge / XP award','Progress recap','Exit ticket','Self-reflection prompt','Peer shout-out','Preview next lesson']
+};
+const CANDO={
+  A2:[['Speaking','Can introduce myself and my job, and exchange simple business information.'],['Writing','Can write a short, simple email making a routine request.'],['Listening','Can understand simple instructions and short work messages.'],['Interaction','Can state simple requirements in a familiar work situation.']],
+  B1:[['Speaking','Can make simple contributions and state requirements in a meeting.'],['Listening/Speaking','Can take and pass on most messages likely to arise during a normal working day.'],['Writing','Can write a short, comprehensible note of request to a colleague.'],['Reading','Can understand most short reports and product descriptions on familiar matters.'],['Interaction','Can make and receive telephone calls, arranging routine matters.']],
+  B2:[['Interaction','Can take part effectively in meetings and discussions on familiar business topics.'],['Writing','Can write a fairly complex email, letter or report, conveying information clearly.'],['Reading','Can understand correspondence and reports, including some non-standard language.'],['Speaking','Can make and respond to suggestions, agreeing/disagreeing diplomatically.'],['Production','Can give a clear presentation on a familiar topic and handle questions.']],
+  C1:[['Interaction','Can contribute effectively to meetings and argue persuasively for or against a case.'],['Listening','Can follow discussion and argument with only occasional need for clarification.'],['Writing','Can write most business letters, reports and proposals; such errors as occur do not impede understanding.'],['Negotiation','Can handle objections and reach agreement on complex matters.'],['Production','Can deliver a persuasive presentation and field challenging questions confidently.']]
+};
+
+/* ---- Gamification chips ---- */
+function renderChips(box,arr,group){ box.innerHTML=''; arr.forEach(([label,desc])=>{ const l=ce('label','chk'); const cb=ce('input'); cb.type='checkbox'; cb.value=label; cb.dataset.group=group; const span=ce('span',null,label); span.appendChild(ce('small',null,desc)); l.append(cb,span); box.appendChild(l); }); }
+
+/* ---- Can-do (by level) ---- */
+function renderCando(){ const lvl=val('f_level'); const box=$('candoBox'); box.innerHTML=''; (CANDO[lvl]||[]).forEach(([skill,txt])=>{ const row=ce('div','cando-item'); const cb=ce('input'); cb.type='checkbox'; cb.value=txt; cb.dataset.skill=skill; row.append(cb, ce('span','sk',skill), ce('span',null,txt)); box.appendChild(row); }); }
+
+/* ---- Phases + timing ---- */
+let phaseRows=[];
+function currentDur(){ return document.querySelector('input[name=dur]:checked').value==='60'?60:30; }
+function buildPhases(){ const box=$('phaseBox'); box.innerHTML=''; phaseRows=[]; PHASES.forEach(p=>{
+  const row=ce('div','phase'); const left=ce('div'); const pt=ce('span','pt'); left.append(ce('div','pn',p[0]),pt);
+  const col=ce('div','pcol');
+  const sel=ce('select'); sel.appendChild(ce('option',null,'— choose an activity —'));
+  (PHASE_OPTS[p[0]]||[]).forEach(o=>{ const op=ce('option',null,o); op.value=o; sel.appendChild(op); });
+  const other=ce('option',null,'Other (type below)'); other.value='__other'; sel.appendChild(other);
+  const ta=ce('textarea'); ta.placeholder='Activity, materials, interaction…';
+  sel.addEventListener('change',()=>{ if(sel.value && sel.value!=='__other' && !ta.value.trim()) ta.value=sel.value+' — '; ta.focus(); });
+  col.append(sel,ta); row.append(left,col); box.appendChild(row);
+  phaseRows.push({name:p[0],m30:p[1],m60:p[2],pt,sel,ta,min:p[1]});
+}); updateTimes(); }
+function updateTimes(){ const d=currentDur(); let total=0; phaseRows.forEach(r=>{ r.min = d===60?r.m60:r.m30; r.pt.textContent=r.min+' min'; total+=r.min; }); $('timeTotal').textContent='⏱️ Total: '+total+' min ('+d+'-minute lesson)'; }
+
+/* ---- Build the plan object ---- */
+function gather(group){ return [...document.querySelectorAll('input[data-group="'+group+'"]:checked')].map(c=>c.value); }
+function buildPlan(){
+  return {
+    method:'MLLDE (IPO + CLIL 4Cs)', standard:'CEFR', content_reference:'Cambridge Business English / English Profile',
+    meta:{ title:val('f_title'), level:val('f_level'), scenario:val('f_scenario'), duration_minutes:currentDur() },
+    can_do_targets:[...document.querySelectorAll('#candoBox input:checked')].map(c=>({skill:c.dataset.skill, statement:c.value})),
+    can_do_custom:val('f_cando'),
+    gamification:{ dynamics:gather('dynamics'), mechanics:gather('mechanics'), components:gather('components') },
+    lesson_cycle:phaseRows.map(r=>({phase:r.name, minutes:r.min, activity_type:(r.sel.value && r.sel.value!=='__other')?r.sel.value:'', activity:r.ta.value.trim()})),
+    mission:val('f_mission'), immediate_assessment:val('f_ia'), rubric:val('f_rubric')
+  };
+}
+
+/* ---- JSON download ---- */
+$('btnJson').addEventListener('click',()=>{
+  const p=buildPlan();
+  const blob=new Blob([JSON.stringify(p,null,2)],{type:'application/json'});
+  const a=ce('a'); a.href=URL.createObjectURL(blob); a.download=((p.meta.title||'lesson-plan').replace(/[^\w]+/g,'_'))+'.json'; a.click(); URL.revokeObjectURL(a.href);
+});
+
+/* ---- PDF (print) ---- */
+function renderPrint(p){
+  const box=$('planPrint'); box.innerHTML='';
+  box.appendChild(ce('h1',null,p.meta.title||'Business English Lesson Plan'));
+  box.appendChild(ce('p',null,`CEFR ${p.meta.level||'—'} · ${p.meta.scenario||'—'} · ${p.meta.duration_minutes} min · ${p.method}`));
+  if(p.can_do_targets.length||p.can_do_custom){ const s=ce('div','pp-sec'); s.appendChild(ce('h3',null,'Can-do targets (Cambridge Business English)')); const ul=ce('ul'); p.can_do_targets.forEach(c=>ul.appendChild(ce('li',null,`[${c.skill}] ${c.statement}`))); if(p.can_do_custom) ul.appendChild(ce('li',null,p.can_do_custom)); s.appendChild(ul); box.appendChild(s); }
+  const g=ce('div','pp-sec'); g.appendChild(ce('h3',null,'Gamification (Dynamics → Mechanics → Components)')); g.appendChild(ce('p',null,'Dynamics: '+(p.gamification.dynamics.join(', ')||'—'))); g.appendChild(ce('p',null,'Mechanics: '+(p.gamification.mechanics.join(', ')||'—'))); g.appendChild(ce('p',null,'Components: '+(p.gamification.components.join(', ')||'—'))); box.appendChild(g);
+  const cs=ce('div','pp-sec'); cs.appendChild(ce('h3',null,'Lesson cycle (IPO)')); const t=ce('table'); const th=ce('thead'); th.innerHTML='<tr><th>Phase</th><th>Min</th><th>Activity type</th><th>Details</th></tr>'; const tb=ce('tbody'); p.lesson_cycle.forEach(r=>{ const tr=ce('tr'); tr.append(ce('td',null,r.phase),ce('td',null,r.minutes+' min'),ce('td',null,r.activity_type||'—'),ce('td',null,r.activity||'')); tb.appendChild(tr); }); t.append(th,tb); cs.appendChild(t); box.appendChild(cs);
+  const a=ce('div','pp-sec'); a.appendChild(ce('h3',null,'Mission & assessment')); a.appendChild(ce('p',null,'Mission: '+(p.mission||'—'))); a.appendChild(ce('p',null,"Don't give up! (Immediate Assessment): "+(p.immediate_assessment||'—'))); a.appendChild(ce('p',null,'Success criteria / rubric: '+(p.rubric||'—'))); box.appendChild(a);
+}
+$('btnPdf').addEventListener('click',()=>{ renderPrint(buildPlan()); document.body.classList.add('print-plan'); window.print(); });
+window.addEventListener('afterprint',()=>document.body.classList.remove('print-plan'));
+
+/* ---- Reset ---- */
+$('btnReset').addEventListener('click',()=>{ if(!confirm('Clear the form?')) return; document.querySelectorAll('#panel-builder input[type=text],#panel-builder textarea').forEach(i=>i.value=''); document.querySelectorAll('#panel-builder input[type=checkbox]').forEach(c=>c.checked=false); document.querySelector('input[name=dur][value="30"]').checked=true; renderCando(); phaseRows.forEach(r=>{r.ta.value='';r.sel.selectedIndex=0;}); updateTimes(); });
+
+/* ---- Init ---- */
+renderChips($('dynBox'),DYNAMICS,'dynamics');
+renderChips($('mechBox'),MECHANICS,'mechanics');
+renderChips($('compBox'),COMPONENTS,'components');
+buildPhases();
+renderCando();
+document.querySelectorAll('input[name=dur]').forEach(r=>r.addEventListener('change',updateTimes));
+$('f_level').addEventListener('change',renderCando);
+</script>
+</body>
+</html>
