@@ -1,0 +1,1199 @@
+<title>Business English A1–C2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --ink:#1F2937; --body:#4B5563; --mut:#6B7280; --line:#E5E7EB; --hair:#F3F4F6;
+    --canvas:#FFFFFF; --shell:#FAFAFA;
+    --green:#5E7F20; --green-soft:#F2F7E8; --green-line:#CFE0A8; --green-pale:#FBFDF6;
+    --blue:#1D4ED8; --blue-soft:#EFF6FF; --blue-line:#BFDBFE; --blue-ink:#1E3A8A;
+    --amber-bg:#FFFBEB; --amber-line:#FDE68A; --amber-ink:#92400E;
+    --violet:#5B21B6; --violet-soft:#EDE9FE; --grey-chip:#F3F4F6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--shell);color:var(--ink);
+       font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.6}
+  .sheet{max-width:980px;margin:0 auto;background:var(--canvas);min-height:100vh;
+         border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  .pad{padding:0 44px 80px}
+  @media (max-width:760px){ .pad{padding:0 18px 60px} }
+  .mast{background:var(--green);color:#fff;padding:36px 44px 32px}
+  @media (max-width:760px){ .mast{padding:28px 18px 24px} }
+  .mast .brand{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+  .mast .mark{width:32px;height:32px;border-radius:8px;background:#fff;color:var(--green);display:flex;
+              align-items:center;justify-content:center;font-weight:800;font-size:13px;letter-spacing:-.03em}
+  .mast .bn{font-weight:700;font-size:15px}
+  .mast .bn small{display:block;font-weight:500;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+  .mast h1{font-size:clamp(28px,4.6vw,42px);font-weight:800;letter-spacing:-.03em;margin:0 0 10px;line-height:1.1}
+  .mast p{margin:0;max-width:60ch;font-size:16px;opacity:.95}
+  .mast .meta{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .mast .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+                   border-radius:99px;padding:4px 12px;font-size:12.5px;font-weight:600}
+  h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
+  .lead{color:var(--body);margin:0 0 18px;max-width:74ch}
+  .callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:11px;
+           padding:16px 18px;color:var(--blue-ink);font-size:14.5px;margin:18px 0 0}
+  .tbl{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:11px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{background:var(--grey-chip);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mut)}
+  tbody tr:last-child td{border-bottom:0}
+  .num{font-variant-numeric:tabular-nums;font-weight:700}
+  .no{color:var(--amber-ink);font-weight:700}
+  /* Level band */
+  .level{margin-top:52px;scroll-margin-top:12px}
+  .lvhead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:3px solid var(--green);padding-top:18px}
+  .lvhead .badge{background:var(--green);color:#fff;border-radius:10px;padding:6px 14px;font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .lvhead .prof{flex:1 1 320px;font-size:15px;color:var(--body)}
+  .lvmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .lvmeta span{background:var(--green-soft);color:var(--green);border-radius:99px;padding:4px 11px;font-size:12px;font-weight:700}
+  /* Unit */
+  .unit{border:1px solid var(--line);border-radius:13px;padding:20px 22px;margin-top:14px;break-inside:avoid}
+  .unit.med{border-color:var(--violet-soft);background:#FDFCFF}
+  .uhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .uhead .un{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--mut);white-space:nowrap}
+  .uhead h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .uskills{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
+  .uskills span{border-radius:99px;padding:3px 10px;font-size:11.5px;font-weight:700;background:var(--grey-chip);color:var(--body)}
+  .uskills span.sk{background:var(--green-soft);color:var(--green)}
+  .uskills span.md{background:var(--violet-soft);color:var(--violet)}
+  .uskills span.ls{background:var(--blue-soft);color:var(--blue-ink)}
+  .scen{font-size:14px;color:var(--body);margin:0 0 14px}
+  dl.spec{display:grid;grid-template-columns:132px 1fr;gap:9px 16px;margin:0;font-size:14.5px}
+  @media (max-width:620px){ dl.spec{grid-template-columns:1fr;gap:2px 0} dl.spec dt{margin-top:10px} }
+  dl.spec dt{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding-top:3px}
+  dl.spec dd{margin:0}
+  dl.spec dd.mission{font-weight:600}
+  ul.crit{list-style:none;margin:0;padding:0}
+  ul.crit li{position:relative;padding-left:18px;margin:3px 0}
+  ul.crit li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border:1.5px solid var(--green);border-radius:3px}
+  .hw{margin-top:12px;background:var(--green-pale);border:1px solid var(--green-line);border-radius:10px;padding:12px 14px;font-size:14px}
+  .hw b{color:var(--green)}
+  .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut);line-height:1.75}
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px}
+  .toc a{display:block;border:1px solid var(--line);border-radius:11px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+  .toc a:hover{border-color:var(--green);background:var(--green-pale)}
+  .toc a b{display:block;font-size:19px;font-weight:800;color:var(--green)}
+  .toc a span{font-size:12.5px;color:var(--mut)}
+  a{color:var(--green)}
+  @media print{ .sheet{border:0} .unit{break-inside:avoid} .level{break-before:page} }
+</style>
+<div class="sheet"><header class="mast"><div class="brand"><span class="mark" aria-hidden="true">TK</span><span class="bn">Talketika<small>Language Community</small></span></div><h1>Business English A1–C2</h1><p>The curriculum in full: six levels, twelve units each, every unit specified — scenario, can-do, skills, target language, mission, success criteria, culture note and homework.</p><div class="meta"><span>72 units</span><span>216 lessons</span><span>36 lessons per level</span><span>50 minutes</span><span>Mediation from A2</span></div></header><div class="pad">
+<h2 style="margin-top:40px">How to read this</h2>
+<p class="lead">Each level is a <b>36-lesson programme</b>: twelve units, three lessons each, delivered as three blocks of twelve classes. The three lessons of a unit are the same targets seen three times — input and practice, processing and rehearsal, then the mission — with the homework spaced <b>+1 / +3 / +7 days</b> across them.</p>
+<div class="callout"><b>Skills and resources are different things.</b> The four CEFR skills — reading, listening, speaking, writing — are tagged on every unit, and mediation is marked where the unit is a relaying task. <b>Grammar and vocabulary are resources</b>: they are listed inside each unit because they feed production, not as skills of their own.</div>
+<div class="toc">
+<a href="#A1"><b>A1</b><span>Survive the workplace</span></a>
+<a href="#A2"><b>A2</b><span>Handle routine work</span></a>
+<a href="#B1"><b>B1</b><span>Work independently</span></a>
+<a href="#B2"><b>B2</b><span>Be effective</span></a>
+<a href="#C1"><b>C1</b><span>Be strategic</span></a>
+<a href="#C2"><b>C2</b><span>Operate at board level</span></a>
+</div>
+<section class="level" id="A1">
+<div class="lvhead"><span class="badge">A1</span><span class="prof">Survive the workplace — greet, give personal and company details, handle numbers and times, make simple requests.</span></div>
+<div class="lvmeta"><span>Reading · 2 units</span><span>Listening · 6 units</span><span>Speaking · 11 units</span><span>Writing · 6 units</span><span>No mediation yet</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>Hello and who I am</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Greeting a visitor and giving your name, role and company</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Greet a visitor, give three facts about yourself and ask one question back.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Greets</li><li>gives name, role and company</li><li>asks one question back</li><li>says goodbye</li></ul></dd>
+<dt>Vocabulary</dt><dd>name · role · company · department · visitor</dd>
+<dt>Chunks</dt><dd>"Hello, I’m…" · "Nice to meet you." · "I work at…" · "And you?"</dd>
+<dt>Grammar</dt><dd>the verb to be; subject pronouns</dd>
+<dt>Culture</dt><dd>Handshake, nod or bow; when first names are used at work.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce a three-line introduction, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A1.1 · Record your three-line introduction<br>Record yourself greeting a visitor: name, role, company, and one question back. Use two chunks from class.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>My job, my workplace</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Describing where you work and who you work with</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Describe your workplace and your team in five sentences.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Names the workplace</li><li>names the team</li><li>uses there is/are once</li><li>keeps to five sentences</li></ul></dd>
+<dt>Vocabulary</dt><dd>office · factory · team · manager · shift</dd>
+<dt>Chunks</dt><dd>"I work in…" · "My manager is…" · "We have…" · "There are…"</dd>
+<dt>Grammar</dt><dd>present simple (I/you/we); there is / there are</dd>
+<dt>Culture</dt><dd>How much personal detail is normal to share at work.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce five sentences about your workplace, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Vocabulary</b> — A1.2 · Five sentences about your workplace<br>Write five sentences: where you work, who is in your team, what there is in the office. Then record them.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Numbers, dates and times</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Writing</span><span class="ls">Reception</span></div>
+<p class="scen">Giving and confirming appointment times</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Give three appointment times and confirm three you are told.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Says times correctly</li><li>uses at/on/in</li><li>confirms back</li><li>corrects one wrong time</li></ul></dd>
+<dt>Vocabulary</dt><dd>number · date · time · appointment · floor</dd>
+<dt>Chunks</dt><dd>"It’s at three." · "On Monday." · "Room 3, second floor." · "Sorry, could you repeat that?"</dd>
+<dt>Grammar</dt><dd>prepositions of time at / on / in; cardinal and ordinal numbers</dd>
+<dt>Culture</dt><dd>Written date formats differ: 03/04 is not the same day everywhere.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one time and one date, said aloud, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — A1.3 · Listen and note five times<br>Listen to the five short messages and write down each time, date and room. Send the list.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Simple requests and offers</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Asking a colleague for help and offering help</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Ask a colleague for two things and offer help with one.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Two requests with can</li><li>one offer</li><li>says please and thank you</li><li>accepts or refuses politely</li></ul></dd>
+<dt>Vocabulary</dt><dd>please · to help · copy · to send · to print</dd>
+<dt>Chunks</dt><dd>"Can you help me?" · "Can I…?" · "Here you are." · "Thanks a lot."</dd>
+<dt>Grammar</dt><dd>can for requests and offers; please</dd>
+<dt>Culture</dt><dd>Where a bare imperative sounds normal and where it sounds rude.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one request and one offer, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A1.4 · Three requests, three offers<br>Record three requests and three offers you would really make this week at work.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Phone and short messages</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Making a short call and leaving a message</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Make a 30-second call: say who you are and leave one message.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Identifies self</li><li>says why they are calling</li><li>leaves one clear message</li><li>closes the call</li></ul></dd>
+<dt>Vocabulary</dt><dd>to call · message · number · later · busy</dd>
+<dt>Chunks</dt><dd>"Hello, this is…" · "Can I speak to…?" · "Sorry, she’s busy." · "I’ll call later."</dd>
+<dt>Grammar</dt><dd>present continuous for now; will for a spontaneous decision</dd>
+<dt>Culture</dt><dd>How direct you may be on a first call.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening of a call, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — A1.5 · Leave a 30-second voicemail<br>Record a 30-second voicemail: who you are, why you are calling, and what you need.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Filling in a form</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Asking for and giving personal and company details</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Complete a visitor form by asking six questions.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Six questions asked</li><li>spells one item back</li><li>fills every field</li><li>no field left blank</li></ul></dd>
+<dt>Vocabulary</dt><dd>surname · address · postcode · signature · date of birth</dd>
+<dt>Chunks</dt><dd>"How do you spell that?" · "What’s your…?" · "Could you repeat the number?"</dd>
+<dt>Grammar</dt><dd>question words; possessive adjectives</dd>
+<dt>Culture</dt><dd>What personal data it is normal to ask for at reception.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce four form questions, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A1.6 · Complete a visitor form<br>Fill in the visitor form for a real colleague by asking them the six questions. Send the completed form.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Where things are</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Reception</span></div>
+<p class="scen">Finding your way around the office</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Give directions to three places in your building.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Uses ≥3 prepositions of place</li><li>names the floor</li><li>gives one landmark</li><li>checks the other person understood</li></ul></dd>
+<dt>Vocabulary</dt><dd>desk · lift · corridor · meeting room · reception</dd>
+<dt>Chunks</dt><dd>"It’s on the second floor." · "Next to the lift." · "Where is…?" · "Follow me."</dd>
+<dt>Grammar</dt><dd>prepositions of place; there is / there are</dd>
+<dt>Culture</dt><dd>Whether you walk a visitor there or point.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce directions to one room, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Vocabulary</b> — A1.7 · Describe where your desk is<br>Record 30 seconds saying exactly where your desk is, from the main entrance. Use three prepositions of place.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Days, routines and schedules</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">Talking about your working day</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Describe your working day from arrival to leaving, in six sentences.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Says start and finish times</li><li>names one break</li><li>uses ≥2 frequency adverbs</li><li>six sentences</li></ul></dd>
+<dt>Vocabulary</dt><dd>shift · break · to start work · to finish · schedule</dd>
+<dt>Chunks</dt><dd>"I start at eight." · "We have a break at…" · "On Fridays I…" · "Never on Sundays."</dd>
+<dt>Grammar</dt><dd>present simple third person; adverbs of frequency</dd>
+<dt>Culture</dt><dd>How fixed or flexible the working day is in different companies.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce your working day in six sentences, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A1.8 · Record your working day<br>Record six sentences about your working day: arrival, tasks, break, finish. Use two frequency adverbs.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Short notes and simple emails</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing a three-line note to a colleague</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write a three-line note asking a colleague to do one thing.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Greeting</li><li>one clear request</li><li>one detail (time or place)</li><li>sign-off</li></ul></dd>
+<dt>Vocabulary</dt><dd>note · to leave · urgent · to call back · thanks</dd>
+<dt>Chunks</dt><dd>"Hi …," · "Please call…" · "See you at…" · "Thanks, [name]"</dd>
+<dt>Grammar</dt><dd>imperatives; please; simple future with will</dd>
+<dt>Culture</dt><dd>When a note is enough and when it must be an email.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce a three-line note, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A1.9 · Write two short notes<br>Write two real three-line notes to colleagues: one request, one thank-you.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Money, prices and paying</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Simple transactions and expenses</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Buy something and ask for a receipt, then report the amount to your manager.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Asks the price</li><li>pays and asks for a receipt</li><li>reports the amount correctly</li><li>says the currency</li></ul></dd>
+<dt>Vocabulary</dt><dd>price · receipt · cash · card · expenses</dd>
+<dt>Chunks</dt><dd>"How much is it?" · "Can I pay by card?" · "Could I have a receipt?" · "That’s twenty euros."</dd>
+<dt>Grammar</dt><dd>how much; numbers over 100; currency</dd>
+<dt>Culture</dt><dd>Whether receipts and expense claims are expected.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one price question and the answer, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — A1.10 · Note five prices<br>Listen to the five short exchanges and write down each price and what it was for.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Sorry, could you repeat that?</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Surviving when you do not understand</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a message you only half understand, using four repair phrases to complete it.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Asks for repetition once</li><li>asks for spelling once</li><li>checks one meaning</li><li>ends with the message complete</li></ul></dd>
+<dt>Vocabulary</dt><dd>to repeat · slowly · to spell · to mean · sorry</dd>
+<dt>Chunks</dt><dd>"Sorry, could you repeat that?" · "Could you speak more slowly?" · "How do you spell it?" · "What does … mean?"</dd>
+<dt>Grammar</dt><dd>question forms; polite requests with could</dd>
+<dt>Culture</dt><dd>Asking for repetition is normal, not a failure.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce two repair phrases, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A1.11 · Use four repair phrases<br>Record yourself using the four repair phrases in a real conversation this week, then say which one you actually needed.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Goodbye and next steps</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Closing a visit or a call</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Close a visit: thank, agree one next step, and say goodbye.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Thanks the visitor</li><li>states one next step with a day</li><li>confirms who does it</li><li>closes warmly</li></ul></dd>
+<dt>Vocabulary</dt><dd>to arrange · next week · to send · to confirm · goodbye</dd>
+<dt>Chunks</dt><dd>"Thanks for coming." · "I’ll send you…" · "See you on Thursday." · "Have a good trip."</dd>
+<dt>Grammar</dt><dd>will for promises; see you + time</dd>
+<dt>Culture</dt><dd>How long goodbyes take in different cultures.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the closing of a visit, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A1.12 · Record a proper goodbye<br>Record a 20-second close of a real meeting: thanks, next step with a day, goodbye.</div>
+</article>
+</section>
+<section class="level" id="A2">
+<div class="lvhead"><span class="badge">A2</span><span class="prof">Handle routine work — short emails, appointments, describing routine tasks, simple orders and instructions.</span></div>
+<div class="lvmeta"><span>Reading · 4 units</span><span>Listening · 4 units</span><span>Speaking · 11 units</span><span>Writing · 7 units</span><span>Mediation · U6, U12</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>First introductions &amp; small talk</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Meeting a counterpart for the first time</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Introduce yourself and your role to a new counterpart, then ask two questions back.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States name, role and company</li><li>asks ≥2 questions</li><li>greets and closes</li><li>stays on safe topics</li></ul></dd>
+<dt>Vocabulary</dt><dd>role · department · colleague · company · industry</dd>
+<dt>Chunks</dt><dd>"Nice to meet you." · "I work in…" · "What do you do exactly?" · "How long have you been with…?"</dd>
+<dt>Grammar</dt><dd>present simple for facts and routines; question forms</dd>
+<dt>Culture</dt><dd>Formal vs first-name cultures; which small-talk topics are safe.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce a four-line introduction, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A2.1 · Introduce yourself (record 4 lines)<br>Record a four-line introduction: name, role, company, and one question for your counterpart. Use two chunks from class.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>Simple business emails</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing a short request and a reply</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write a short email requesting one thing, with a clear subject line and a polite closing.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Clear subject</li><li>one explicit request</li><li>polite form, not an imperative</li><li>opening and closing present</li></ul></dd>
+<dt>Vocabulary</dt><dd>request · attachment · deadline · reply · regards</dd>
+<dt>Chunks</dt><dd>"I am writing to…" · "Could you please…?" · "Please find attached…" · "Best regards,"</dd>
+<dt>Grammar</dt><dd>please / could for polite requests; email openings and closings</dd>
+<dt>Culture</dt><dd>How direct an email may be; when a greeting is expected.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce a more polite version of a blunt request, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.2 · Write a request email<br>Write a 60–80 word email requesting information from a supplier. Use one opening and one closing chunk from class.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Describing your daily work</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">Explaining your routine and responsibilities</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Describe your working week in eight sentences.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Covers a typical day and a typical week</li><li>uses ≥2 frequency adverbs</li><li>names one responsibility</li><li>keeps to time</li></ul></dd>
+<dt>Vocabulary</dt><dd>task · routine · to report to · responsible for · workload</dd>
+<dt>Chunks</dt><dd>"I usually…" · "I’m responsible for…" · "Every Monday we…" · "It depends on…"</dd>
+<dt>Grammar</dt><dd>present simple with adverbs of frequency</dd>
+<dt>Culture</dt><dd>How work and private time are separated in different teams.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce three sentences about your routine, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A2.3 · Describe your working week<br>Record 60 seconds on your working week: what you do daily, weekly, and what you are responsible for.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Making appointments</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Arranging and confirming a meeting</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Arrange a meeting in four turns, then confirm it by email.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Proposes a time</li><li>reacts to a clash</li><li>agrees a final slot</li><li>confirms in writing</li></ul></dd>
+<dt>Vocabulary</dt><dd>available · diary · to book · to confirm · slot</dd>
+<dt>Chunks</dt><dd>"Are you free on…?" · "Does three work for you?" · "Let’s say Tuesday." · "I’ll confirm by email."</dd>
+<dt>Grammar</dt><dd>can / could for arrangements; prepositions of time</dd>
+<dt>Culture</dt><dd>How far ahead meetings are normally booked.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the confirmation email, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.4 · Confirm a meeting in writing<br>After agreeing a time with a colleague, write the three-line confirmation email: what, when, where.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Orders, prices and quantities</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Reading</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Placing an order and checking price and delivery</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Place an order and check the price and the delivery date.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States quantity</li><li>asks the price</li><li>asks the date</li><li>repeats the total back to confirm</li></ul></dd>
+<dt>Vocabulary</dt><dd>order · quantity · price · invoice · delivery</dd>
+<dt>Chunks</dt><dd>"We’d like to order…" · "How much is…?" · "When can you deliver?" · "That’s within budget."</dd>
+<dt>Grammar</dt><dd>countable and uncountable; how much / how many</dd>
+<dt>Culture</dt><dd>Whether prices are expected to include tax.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one order and one price question, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — A2.5 · Note the details of an order<br>Listen to the order call and write down quantity, unit price, total and delivery date.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Giving simple instructions</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Explaining a short process to a new colleague</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Explain a four-step process to a new colleague and check they understood.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Four ordered steps</li><li>uses ≥2 sequencers</li><li>one warning or tip</li><li>checks understanding</li></ul></dd>
+<dt>Vocabulary</dt><dd>step · first · then · finally · to be careful with</dd>
+<dt>Chunks</dt><dd>"First…, then…" · "Don’t forget to…" · "Be careful with…" · "Does that make sense?"</dd>
+<dt>Grammar</dt><dd>imperatives; sequencers</dd>
+<dt>Culture</dt><dd>How much explicit instruction is expected before someone starts.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one process in four steps, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.6 · Write a four-step how-to<br>Write the four steps of something you really do at work, then record yourself explaining it to a new colleague.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Something isn’t working</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Describing a simple problem</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Report a problem to IT: what it is, what you tried, what you need.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Describes the fault</li><li>says what was already tried</li><li>makes one request</li><li>gives a deadline</li></ul></dd>
+<dt>Vocabulary</dt><dd>broken · to work · error · to restart · support</dd>
+<dt>Chunks</dt><dd>"It’s not working." · "It keeps…" · "Could you have a look?" · "I’ve already tried…"</dd>
+<dt>Grammar</dt><dd>present continuous for temporary problems; present perfect for what you tried</dd>
+<dt>Culture</dt><dd>Whether problems go to a person or a ticket system.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the problem description, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.7 · Report a real fault<br>Write four lines reporting a real problem: what happens, when it started, what you tried, what you need.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Talking about past work</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">What you did last week or on your last project</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Describe a finished piece of work in eight sentences: what, when, who, result.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Uses past simple correctly ≥5 times</li><li>gives the timeframe</li><li>names one result</li><li>eight sentences</li></ul></dd>
+<dt>Vocabulary</dt><dd>last week · project · to finish · to take part in · result</dd>
+<dt>Chunks</dt><dd>"Last month we…" · "It took about…" · "In the end…" · "We managed to…"</dd>
+<dt>Grammar</dt><dd>past simple regular and irregular; time markers</dd>
+<dt>Culture</dt><dd>How much credit you take for team work.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce three past-simple sentences, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A2.8 · Describe a finished project<br>Record 90 seconds about a project you finished: what, when, who with, the result.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Plans and arrangements</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">What you are going to do next</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Explain your plans for the next month, separating fixed arrangements from intentions.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Distinguishes arrangements from intentions</li><li>≥2 of each</li><li>dates given</li><li>no future simple misuse</li></ul></dd>
+<dt>Vocabulary</dt><dd>plan · to arrange · deadline · next quarter · to be going to</dd>
+<dt>Chunks</dt><dd>"We’re going to…" · "I’m meeting them on…" · "The plan is to…" · "Hopefully by…"</dd>
+<dt>Grammar</dt><dd>going to vs present continuous for arrangements</dd>
+<dt>Culture</dt><dd>How firmly a plan is stated before it is certain.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce two plans and two arrangements, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.9 · Write your month ahead<br>Write six lines about your next month: three fixed arrangements, three intentions. Mark which is which.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Comparing options</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Choosing between two suppliers or tools</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Compare two options and recommend one, with two reasons.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>≥3 comparatives</li><li>one superlative</li><li>a clear recommendation</li><li>two reasons</li></ul></dd>
+<dt>Vocabulary</dt><dd>cheaper · faster · reliable · option · to choose</dd>
+<dt>Chunks</dt><dd>"A is cheaper than B." · "The best thing about…" · "It’s not as good as…" · "I’d go for…"</dd>
+<dt>Grammar</dt><dd>comparatives and superlatives; not as … as</dd>
+<dt>Culture</dt><dd>Whether price or relationship decides in your market.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one comparison and a recommendation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — A2.10 · Compare two real options<br>Write a short comparison of two tools or suppliers you actually use: three comparisons and your recommendation.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Welcoming a visitor</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Hosting someone in your office</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Welcome a visitor, offer something, and give a two-minute tour.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Welcomes by name</li><li>makes ≥2 offers</li><li>describes three places</li><li>ends by saying what happens next</li></ul></dd>
+<dt>Vocabulary</dt><dd>to welcome · tour · badge · canteen · to offer</dd>
+<dt>Chunks</dt><dd>"Welcome to…" · "Can I get you a coffee?" · "Let me show you around." · "This is where we…"</dd>
+<dt>Grammar</dt><dd>offers with can / would you like; there is / are</dd>
+<dt>Culture</dt><dd>How much hospitality is expected before business starts.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the welcome and one offer, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — A2.11 · Record your office tour<br>Record a two-minute tour of your workplace as if for a visitor: three places, two offers.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Taking and passing on messages</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Reception</span></div>
+<p class="scen">Phone messages and handover notes</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a phone message and pass it on in writing, without losing a detail.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Takes name, number and reason</li><li>reads it back</li><li>writes it in three lines</li><li>nothing lost between call and note</li></ul></dd>
+<dt>Vocabulary</dt><dd>message · to pass on · to call back · available · urgent</dd>
+<dt>Chunks</dt><dd>"Can I take a message?" · "She’ll call you back." · "Let me read that back to you." · "It’s about…"</dd>
+<dt>Grammar</dt><dd>reported speech, simple; will for offers</dd>
+<dt>Culture</dt><dd>How quickly messages are expected to be passed on.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one message read back, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — A2.12 · Take and pass on a message<br>Listen to the call, write the message in three lines, and record yourself passing it on.</div>
+</article>
+</section>
+<section class="level" id="B1">
+<div class="lvhead"><span class="badge">B1</span><span class="prof">Work independently — write the emails, present a project, chair a small meeting, keep the minutes and summarise what was said.</span></div>
+<div class="lvmeta"><span>Reading · 7 units</span><span>Listening · 5 units</span><span>Speaking · 11 units</span><span>Writing · 10 units</span><span>Mediation · U7, U8, U9</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>Kicking Off the Project</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Chairing a project kick-off with a cross-functional team</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Chair a three-turn kick-off: state the objective, assign ≥2 action items with named owners and deadlines, and agree the next meeting.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States the objective clearly</li><li>assigns ≥2 action items with named owners</li><li>each item has a deadline</li><li>uses ≥3 chairing chunks</li><li>closes by agreeing the next meeting</li><li>register is diplomatic</li></ul></dd>
+<dt>Vocabulary</dt><dd>agenda · milestone · deliverable · stakeholder · action item · deadline</dd>
+<dt>Chunks</dt><dd>"Let’s get started, shall we?" · "Let’s move on to…" · "Could you take care of…?" · "I’d like to hand over to…" · "To sum up, …" · "Let’s schedule a follow-up for…"</dd>
+<dt>Grammar</dt><dd>present simple for the agenda; will for offers and decisions; polite question forms</dd>
+<dt>Culture</dt><dd>Meeting etiquette in international teams; diplomatic over blunt; turn-taking; start and end on time.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one chairing turn, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B1.1 · Chair a kick-off (record 3 turns)<br>Record three chairing turns for a kick-off of your own project: objective, two action items with owners and deadlines, and the next meeting. Use at least three chunks from class.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>Writing business emails</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">The daily written genre: requests, replies, follow-ups</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write an email that gets one clear action, with a subject line that says what is needed.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Subject names the action</li><li>one explicit request</li><li>a deadline</li><li>register matches the relationship</li><li>opening and closing present</li></ul></dd>
+<dt>Vocabulary</dt><dd>subject line · to follow up · attached · to clarify · by return</dd>
+<dt>Chunks</dt><dd>"Following up on…" · "Just to confirm…" · "Could you let me know by…?" · "Please find attached…" · "Apologies for the delay."</dd>
+<dt>Grammar</dt><dd>indirect questions; polite forms; linkers; email register</dd>
+<dt>Culture</dt><dd>How much small talk an email carries before the ask; when to copy someone in.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the subject line and the ask, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.2 · Rewrite a real email<br>Take an email you sent that got no reply. Rewrite it: new subject line, one ask, one deadline. Send both versions.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Telephoning &amp; scheduling</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Making and taking calls, arranging and changing appointments</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Call a colleague, arrange a meeting, then call back to change the time.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Identifies self and reason for calling</li><li>proposes a time</li><li>handles a change politely</li><li>confirms the final arrangement</li></ul></dd>
+<dt>Vocabulary</dt><dd>extension · to put through · availability · to reschedule · slot</dd>
+<dt>Chunks</dt><dd>"Could I speak to…?" · "I’ll put you through." · "Would Thursday suit you?" · "Can we move it to…?" · "Let me just check my diary."</dd>
+<dt>Grammar</dt><dd>polite question forms; would / could for arrangements</dd>
+<dt>Culture</dt><dd>How clearly to hand over on calls; punctuality expectations.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening of the call and the request, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — B1.3 · Leave a voicemail rescheduling a meeting<br>Record a 30-second voicemail: identify yourself, say why you are calling, propose a new time, ask for confirmation.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Describing company, role &amp; product</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">A short factual monologue about your work</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Give a 90-second description of your company, your role and one product.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Covers company, role and product</li><li>uses ≥2 comparatives</li><li>stays within time</li><li>does not read from notes</li></ul></dd>
+<dt>Vocabulary</dt><dd>headquarters · to be responsible for · feature · benefit · turnover</dd>
+<dt>Chunks</dt><dd>"We’re based in…" · "I’m responsible for…" · "It’s designed to…" · "Compared with…, ours is…"</dd>
+<dt>Grammar</dt><dd>present simple; comparatives for product features</dd>
+<dt>Culture</dt><dd>How much self-promotion is expected in different markets.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the product part only, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Vocabulary</b> — B1.4 · Describe your product in 60 seconds<br>Record 60 seconds describing one product: two features, two benefits, one comparison with an alternative.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Presenting a project</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">A short project presentation to colleagues or a client</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Present a project in three minutes: aim, where it stands, next milestone and one risk.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States the aim in one sentence</li><li>says where it stands with a date</li><li>names the next milestone</li><li>names one risk</li><li>keeps to three minutes</li></ul></dd>
+<dt>Vocabulary</dt><dd>objective · scope · timeline · budget · outcome</dd>
+<dt>Chunks</dt><dd>"The aim of the project is…" · "We’re currently at…" · "The next milestone is…" · "One risk we’re watching is…" · "To sum up, we’re on track for…"</dd>
+<dt>Grammar</dt><dd>present continuous for work in progress; future forms for milestones; sequencing</dd>
+<dt>Culture</dt><dd>How much detail an audience expects before the recommendation.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the aim and the current status, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B1.5 · Record a three-minute project update<br>Record a three-minute presentation of a real project: aim, status, next milestone, one risk.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Reporting progress</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">A status update with a problem and a next step</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Give a two-minute status update: what is done, one problem, one next step with a date.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Says what is done and what is not</li><li>names one blocker</li><li>gives a next step with a date</li><li>distinguishes finished from ongoing</li></ul></dd>
+<dt>Vocabulary</dt><dd>on track · delay · update · blocker · status</dd>
+<dt>Chunks</dt><dd>"We’re on track for…" · "We’ve hit a delay with…" · "So far we’ve…" · "The next step is…"</dd>
+<dt>Grammar</dt><dd>present perfect vs past simple</dd>
+<dt>Culture</dt><dd>How openly bad news is delivered upward.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the blocker sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.6 · Write a status email<br>Write a status email in five lines: done, in progress, blocked, next step, date. Use present perfect twice.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Minutes &amp; action points</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Writing up what a meeting decided</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write the minutes of a ten-minute meeting: decisions taken, action points with owners and dates.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Lists attendees</li><li>records each decision</li><li>every action has an owner and a date</li><li>nothing recorded that was not said</li><li>fits on one page</li></ul></dd>
+<dt>Vocabulary</dt><dd>minutes · attendees · apologies · action point · to carry over</dd>
+<dt>Chunks</dt><dd>"Present: …" · "It was agreed that…" · "Action: [name] to… by…" · "Carried over from the last meeting…" · "Noted for the record."</dd>
+<dt>Grammar</dt><dd>passive for reporting decisions; reported speech; nominalisation</dd>
+<dt>Culture</dt><dd>Whether minutes are a formal record or working notes, and who gets to correct them.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one decision recorded neutrally, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.7 · Write the minutes of a real meeting<br>Take a meeting you actually attended and write its minutes: attendees, decisions, actions with owners and dates.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Explaining a process</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Walking a colleague through a workflow</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Explain a six-step process including one exception, and check understanding.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Six ordered steps</li><li>one conditional</li><li>one exception named</li><li>checks understanding at the end</li></ul></dd>
+<dt>Vocabulary</dt><dd>workflow · step · to trigger · handover · exception</dd>
+<dt>Chunks</dt><dd>"The process starts when…" · "Once that’s done…" · "If that fails, then…" · "The exception is…"</dd>
+<dt>Grammar</dt><dd>sequencers; zero and first conditional; passive for processes</dd>
+<dt>Culture</dt><dd>How much process is written down versus known.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce three steps with a conditional, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.8 · Document a real process<br>Write the six steps of a process you own, including what happens when it goes wrong.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Summarising a document</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Passing on what a report or a thread actually says</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Read a one-page document and summarise it for a colleague in five sentences, keeping one caveat.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Main claim accurate</li><li>five sentences or fewer</li><li>one caveat kept</li><li>nothing added that is not in the document</li><li>says what it does not cover</li></ul></dd>
+<dt>Vocabulary</dt><dd>summary · key point · in brief · gist · to leave out</dd>
+<dt>Chunks</dt><dd>"The main point is…" · "In brief, …" · "What matters for you is…" · "It doesn’t cover…"</dd>
+<dt>Grammar</dt><dd>reporting verbs; light nominalisation; summarising structures</dd>
+<dt>Culture</dt><dd>How much interpretation a summary is expected to carry.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the five-sentence summary, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.9 · Summarise a real document in five lines<br>Take a document from your work and summarise it in five sentences for someone who has not read it. Keep one caveat.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Handling routine problems</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Reporting a problem and agreeing who fixes it</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Report a problem and agree who fixes it, by when.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Describes the problem factually</li><li>asks for action</li><li>agrees an owner</li><li>agrees a deadline</li></ul></dd>
+<dt>Vocabulary</dt><dd>issue · to fix · spare · replacement · apology</dd>
+<dt>Chunks</dt><dd>"There’s a problem with…" · "Could you look into it?" · "I’ll sort it out." · "By when do you need it?"</dd>
+<dt>Grammar</dt><dd>will for spontaneous decisions; should for advice</dd>
+<dt>Culture</dt><dd>Whether problems are raised directly or through a manager.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the problem report, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.10 · Report a real problem in writing<br>Write five lines reporting a real problem: what happened, impact, what you need, from whom, by when.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Taking part in a meeting</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Contributing, agreeing and asking for clarification</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Contribute three times to a ten-minute meeting: one addition, one agreement with a reason, one clarification.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Three contributions</li><li>one reason given</li><li>one clarification requested</li><li>does not interrupt rudely</li></ul></dd>
+<dt>Vocabulary</dt><dd>to attend · point · minutes · to agree · item</dd>
+<dt>Chunks</dt><dd>"Can I add something?" · "I agree with…, because…" · "Sorry, could you repeat that?" · "So what we’re saying is…"</dd>
+<dt>Grammar</dt><dd>modals of suggestion; question tags</dd>
+<dt>Culture</dt><dd>Who speaks first, and whether silence means agreement.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one contribution with a reason, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — B1.11 · Note three points and one decision<br>Listen to the meeting extract and write the three points raised and the decision taken.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Customer service basics</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Handling a request from a client</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a client request, set an expectation, and confirm what happens next.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Confirms what was asked</li><li>states what is possible</li><li>gives a timeframe</li><li>confirms next contact</li></ul></dd>
+<dt>Vocabulary</dt><dd>request · to check · to confirm · timeframe · to keep informed</dd>
+<dt>Chunks</dt><dd>"Let me check that for you." · "I can confirm that…" · "What I can do is…" · "I’ll keep you posted."</dd>
+<dt>Grammar</dt><dd>future forms for promises; softening</dd>
+<dt>Culture</dt><dd>How much certainty a client expects to hear.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the expectation-setting sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B1.12 · Answer a real client request<br>Write a four-line reply to a real client request: acknowledge, what you can do, timeframe, next contact.</div>
+</article>
+</section>
+<section class="level" id="B2">
+<div class="lvhead"><span class="badge">B2</span><span class="prof">Be effective — argue in decisions, negotiate, present, handle complaints and write reports. Mediation enters here.</span></div>
+<div class="lvmeta"><span>Reading · 5 units</span><span>Listening · 7 units</span><span>Speaking · 12 units</span><span>Writing · 10 units</span><span>Mediation · U4, U6</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>Meetings &amp; decision-making</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Expressing and supporting opinions in a decision meeting</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Argue for one of two options, disagree with one colleague diplomatically, and help reach a decision.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States a position with a reason</li><li>disagrees without bluntness</li><li>interrupts politely once</li><li>contributes to closing the decision</li></ul></dd>
+<dt>Vocabulary</dt><dd>to weigh up · trade-off · consensus · to table · rationale</dd>
+<dt>Chunks</dt><dd>"I see your point, but…" · "Could I just come in here?" · "I’d say that…" · "Shall we take a decision on…?"</dd>
+<dt>Grammar</dt><dd>hedging (it seems / I’d say / that might be); modals of possibility</dd>
+<dt>Culture</dt><dd>How disagreement is voiced across teams; whether silence means consent.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce a blunt disagreement, rewritten diplomatically, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Grammar</b> — B2.1 · Rewrite three blunt lines diplomatically<br>Take the three blunt sentences from class and rewrite each with hedging. Send them written, then record the best one.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>Negotiating a deal</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Bargaining towards a compromise</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Negotiate one term to an agreed compromise, trading at least one concession.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Makes an opening offer</li><li>uses ≥2 conditionals</li><li>rejects softly once</li><li>reaches an explicit agreement</li></ul></dd>
+<dt>Vocabulary</dt><dd>concession · leverage · to meet halfway · terms · walk-away point</dd>
+<dt>Chunks</dt><dd>"If you…, we could…" · "That’s not quite what we had in mind." · "Would you consider…?" · "Let’s meet halfway."</dd>
+<dt>Grammar</dt><dd>first and second conditionals for bargaining</dd>
+<dt>Culture</dt><dd>Where haggling is expected and where it reads as bad faith.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one conditional offer, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Grammar</b> — B2.2 · Prepare three conditional offers<br>Write three conditional offers for a real negotiation you face, then record yourself making the strongest one.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Presentations</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">Delivering a structured presentation with Q&amp;A</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Deliver a three-minute presentation with an intro, two points and a close, then handle two questions.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Signposts the structure up front</li><li>describes one data point accurately</li><li>closes with a takeaway</li><li>answers two questions without losing the thread</li></ul></dd>
+<dt>Vocabulary</dt><dd>to signpost · trend · to level off · takeaway · Q&amp;A</dd>
+<dt>Chunks</dt><dd>"Today I’ll cover three things." · "As you can see from…" · "That brings me to…" · "To wrap up, …" · "Good question — …"</dd>
+<dt>Grammar</dt><dd>sequencing and signposting language; describing trends</dd>
+<dt>Culture</dt><dd>How much data an audience expects before the recommendation.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening 30 seconds, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B2.3 · Record your presentation opening<br>Record the first 45 seconds of a real presentation: hook, agenda in three points, and the takeaway you are heading for.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Handling complaints &amp; problems</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Interaction</span></div>
+<p class="scen">Managing a complaint and briefing the team that must fix it</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a complaint from a client, then brief your internal team on what they must fix — mediation entry.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Acknowledges before explaining</li><li>proposes one concrete action with a date</li><li>relays the client’s point accurately</li><li>keeps register calm</li></ul></dd>
+<dt>Vocabulary</dt><dd>to escalate · root cause · goodwill · resolution · follow-up</dd>
+<dt>Chunks</dt><dd>"I’m sorry to hear that." · "Let me look into it." · "What we can do is…" · "I’ll get back to you by…"</dd>
+<dt>Grammar</dt><dd>apologising and softening; passive for depersonalising fault</dd>
+<dt>Culture</dt><dd>How much apology is expected before a solution.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the two-line internal summary, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.4 · Summarise a complaint for your team<br>Write a five-line internal summary of a real complaint: what happened, what the client wants, what you promised, by when.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Reports &amp; proposals</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing a short proposal with findings and a recommendation</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write a one-page proposal: scope, findings, one recommendation, one risk.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Scope stated in one line</li><li>findings separated from opinion</li><li>one clear recommendation</li><li>one named risk</li></ul></dd>
+<dt>Vocabulary</dt><dd>findings · recommendation · scope · appendix · rationale</dd>
+<dt>Chunks</dt><dd>"The data suggests…" · "We recommend…" · "On balance, …" · "Subject to…"</dd>
+<dt>Grammar</dt><dd>passive; nominalisation; linkers of contrast and result</dd>
+<dt>Culture</dt><dd>How much hedging a written recommendation carries in different companies.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the recommendation paragraph, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.5 · Write a one-page proposal<br>Write a one-page proposal on something real: scope, three findings, one recommendation, one risk.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Cross-team briefing</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Relaying a technical decision to a non-technical team</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Relay a technical decision to a non-technical team in two minutes, keeping one caveat intact.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Keeps the decision accurate</li><li>translates one technical term</li><li>preserves one caveat</li><li>ends with what it means for the listener</li></ul></dd>
+<dt>Vocabulary</dt><dd>to relay · summary · context · stakeholder · takeaway</dd>
+<dt>Chunks</dt><dd>"In short, …" · "For your team, this means…" · "The key point is…" · "What this does not change is…"</dd>
+<dt>Grammar</dt><dd>reporting verbs; simplifying without distorting</dd>
+<dt>Culture</dt><dd>How much technical detail different teams expect.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the one-line headline of the decision, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B2.6 · Brief another team in 90 seconds<br>Record 90 seconds relaying a real decision to a team outside your own. Keep one caveat.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Managing projects and risks</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Running a project review with risks on the table</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Run a project review: status, two risks with mitigations, one decision needed.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Separates status from risk</li><li>quantifies ≥1 risk</li><li>gives a mitigation for each</li><li>names the decision needed and from whom</li></ul></dd>
+<dt>Vocabulary</dt><dd>scope creep · dependency · mitigation · contingency · critical path</dd>
+<dt>Chunks</dt><dd>"The main risk here is…" · "We’ve mitigated that by…" · "That depends on…" · "If it slips, we…"</dd>
+<dt>Grammar</dt><dd>conditionals for risk; passive for process; modals of probability</dd>
+<dt>Culture</dt><dd>How openly risk is surfaced before it becomes a problem.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one risk with its mitigation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.7 · Write a risk register entry<br>Write two real risks from your project: description, likelihood, impact, mitigation, owner.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Recruiting and being recruited</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Conducting and giving a competency interview</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Run a ten-minute competency interview: three questions, two probes, one summary back.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Questions are behavioural, not hypothetical</li><li>probes for specifics ≥2 times</li><li>summarises the answer back</li><li>avoids leading the candidate</li></ul></dd>
+<dt>Vocabulary</dt><dd>competency · evidence · culture fit · to probe · red flag</dd>
+<dt>Chunks</dt><dd>"Tell me about a time when…" · "What was your specific contribution?" · "How did you handle…?" · "What would you do differently?"</dd>
+<dt>Grammar</dt><dd>past simple and past perfect for narrative; probing questions</dd>
+<dt>Culture</dt><dd>How much personal information may legally and culturally be asked.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one probing follow-up, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B2.8 · Record three competency questions<br>Record three behavioural questions for a role you would actually hire for, plus the probe you would use for each.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Networking and relationships</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Working a room and following up</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Open a conversation with a stranger, find common ground, and send the follow-up message.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Opens without a pitch</li><li>finds one genuine common point</li><li>exits the conversation gracefully</li><li>follow-up message references something specific</li></ul></dd>
+<dt>Vocabulary</dt><dd>to reach out · common ground · to follow up · introduction · to keep in touch</dd>
+<dt>Chunks</dt><dd>"What brings you here?" · "We should stay in touch." · "I’d love to introduce you to…" · "Following up on our conversation…"</dd>
+<dt>Grammar</dt><dd>question forms for rapport; would for softening; present perfect for connection</dd>
+<dt>Culture</dt><dd>How quickly business may be raised after the small talk.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening and the exit, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.9 · Send two real follow-ups<br>Write two follow-up messages to people you actually met, each referencing something specific from the conversation.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Explaining data and trends</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Presenting numbers and defending the reading</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Present three data points, give your reading, and defend it against one challenge.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States what the data shows before what it means</li><li>names one limitation</li><li>handles the challenge without abandoning the reading</li><li>no overclaiming</li></ul></dd>
+<dt>Vocabulary</dt><dd>correlation · outlier · baseline · margin · to normalise</dd>
+<dt>Chunks</dt><dd>"What this tells us is…" · "The outlier here is…" · "Adjusted for…, the picture changes." · "I’d be careful reading too much into…"</dd>
+<dt>Grammar</dt><dd>hedging around data; comparatives of degree; cause and effect linkers</dd>
+<dt>Culture</dt><dd>How much certainty an audience expects from numbers.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the reading and its limitation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — B2.10 · Present three real numbers<br>Record two minutes on three numbers from your work: what they show, what you read into them, one caveat.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Managing conflict in a team</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Intervening when two colleagues clash</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Intervene in a disagreement: hear both, name the shared goal, agree one ground rule.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Both sides heard without interruption</li><li>reformulates each position neutrally</li><li>names the shared goal</li><li>one concrete agreement</li></ul></dd>
+<dt>Vocabulary</dt><dd>friction · to de-escalate · underlying · to acknowledge · ground rules</dd>
+<dt>Chunks</dt><dd>"I want to hear both sides." · "What I’m hearing is…" · "Can we agree on…?" · "Let’s separate the issue from the person."</dd>
+<dt>Grammar</dt><dd>reformulation; softening; imperatives for ground rules</dd>
+<dt>Culture</dt><dd>Whether conflict is aired in the open or handled privately.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one neutral reformulation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.11 · Reformulate two positions<br>Take a real disagreement and write each side’s position in one neutral sentence, then the shared goal.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Remote and asynchronous communication</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing so a distributed team can act without you</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write an async update that lets a team in another time zone act without asking you anything.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Context before ask</li><li>one explicit action per person</li><li>a deadline with a time zone</li><li>a stated default if nobody replies</li></ul></dd>
+<dt>Vocabulary</dt><dd>asynchronous · context · to unblock · thread · time zone</dd>
+<dt>Chunks</dt><dd>"Context: … Ask: … Deadline: …" · "No action needed — FYI." · "Tagging you because…" · "I’ll assume yes unless I hear otherwise by…"</dd>
+<dt>Grammar</dt><dd>imperatives; conditional defaults; front-loading</dd>
+<dt>Culture</dt><dd>How tone is read when nobody can hear it.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the context-ask-deadline block, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — B2.12 · Rewrite a real thread<br>Take a message that caused a round of clarifying questions. Rewrite it so none of them would have been needed.</div>
+</article>
+</section>
+<section class="level" id="C1">
+<div class="lvhead"><span class="badge">C1</span><span class="prof">Be strategic — influence, pitch, brief across teams, lead difficult conversations, chair high-stakes meetings.</span></div>
+<div class="lvmeta"><span>Reading · 6 units</span><span>Listening · 5 units</span><span>Speaking · 12 units</span><span>Writing · 10 units</span><span>Mediation · U3, U6</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>Strategic negotiation &amp; influence</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Framing, handling objections and closing</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Handle three objections and close on an agreed next step.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Frames the deal before the numbers</li><li>addresses each objection specifically</li><li>trades rather than concedes</li><li>closes explicitly</li></ul></dd>
+<dt>Vocabulary</dt><dd>to frame · objection · fallback · to concede · to close</dd>
+<dt>Chunks</dt><dd>"What matters most to us is…" · "I understand the concern — here’s how we’d handle it." · "On that basis, can we agree…?"</dd>
+<dt>Grammar</dt><dd>tone control; cleft sentences for emphasis; advanced conditionals</dd>
+<dt>Culture</dt><dd>Where a hard close reads as confident and where it reads as rude.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the answer to the hardest objection, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C1.1 · Answer your three hardest objections<br>List the three objections you actually face and record a 30-second answer to each.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>Persuasive presentations &amp; pitches</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Pitching and fielding tough questions</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Pitch one idea in three minutes and field two challenging questions without conceding the argument.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Opens with the problem, not the product</li><li>one clear ask</li><li>handles challenge without defensiveness</li><li>closes with a call to action</li></ul></dd>
+<dt>Vocabulary</dt><dd>value proposition · traction · to differentiate · call to action · proof point</dd>
+<dt>Chunks</dt><dd>"The problem is simple: …" · "Here’s why that matters." · "Let me push back on that." · "So what we’re asking for is…"</dd>
+<dt>Grammar</dt><dd>rhetorical structure; rule of three; emphatic forms</dd>
+<dt>Culture</dt><dd>How much enthusiasm reads as credible in different markets.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the ask, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C1.2 · Record your 60-second pitch<br>Record a 60-second pitch: problem, solution, one proof point, the ask.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Reporting &amp; briefing</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Summarising a long report for a non-expert</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Read a long report and brief a non-expert colleague in two minutes, keeping the caveats intact — mediation flagship.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Keeps the main claim accurate</li><li>simplifies without distorting</li><li>preserves ≥1 caveat</li><li>ends with the implication for the listener</li></ul></dd>
+<dt>Vocabulary</dt><dd>executive summary · to condense · implication · caveat · briefing note</dd>
+<dt>Chunks</dt><dd>"In short, …" · "The headline is…" · "For a non-specialist, that means…" · "The one thing to take away is…"</dd>
+<dt>Grammar</dt><dd>reporting verbs; nominalisation; summarising structures</dd>
+<dt>Culture</dt><dd>How much detail different teams expect before the recommendation.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the two-line headline for a non-specialist, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Listening</b> — C1.3 · Brief a non-expert in 90 seconds<br>Take a real report from your work and record a 90-second briefing for someone outside your team. Keep one caveat.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Leading a difficult conversation</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Delivering hard feedback and agreeing an action</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Deliver difficult feedback, absorb one defensive reaction, and agree one action — without losing the relationship.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States the issue in one sentence</li><li>gives evidence, not character judgement</li><li>listens back and reformulates</li><li>agrees one action with a date</li></ul></dd>
+<dt>Vocabulary</dt><dd>performance · candid · boundary · expectation · follow-up</dd>
+<dt>Chunks</dt><dd>"I want to be straight with you." · "What I’m hearing is…" · "Where we need to get to is…" · "Can we agree on…?"</dd>
+<dt>Grammar</dt><dd>conditionals for consequence; softening without losing clarity</dd>
+<dt>Culture</dt><dd>How directly criticism is given, and to whom, across cultures.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening sentence of the conversation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C1.4 · Script and record the opening<br>Write the opening three sentences of a difficult conversation you actually need to have, then record them.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Chairing high-stakes meetings</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Chairing with dissent in the room</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Chair a meeting with one dissenting voice and close with a logged decision.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Gives dissent airtime</li><li>parks what is out of scope</li><li>states the decision, owner and date aloud</li><li>logs it in writing</li></ul></dd>
+<dt>Vocabulary</dt><dd>quorum · to park · escalation · decision log · dissent</dd>
+<dt>Chunks</dt><dd>"Let’s park that for now." · "I want to hear the objection." · "Decision: … Owner: … By: …" · "Are we agreed?"</dd>
+<dt>Grammar</dt><dd>managing turn-taking; formal register; imperatives softened</dd>
+<dt>Culture</dt><dd>Whether dissent is voiced in the room or afterwards.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the closing decision statement, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.5 · Write the decision log<br>Write the decision log for a real meeting: decision, owner, date, dissent recorded, next review.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Executive writing</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Compressing analysis into an executive note</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Compress a three-page analysis into a 150-word executive note.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Conclusion in the first line</li><li>one ask</li><li>one risk named</li><li>under 150 words</li></ul></dd>
+<dt>Vocabulary</dt><dd>brevity · so-what · bottom line · exposure · mandate</dd>
+<dt>Chunks</dt><dd>"Bottom line: …" · "We are asking for…" · "The risk we accept is…" · "No decision needed today."</dd>
+<dt>Grammar</dt><dd>nominalisation; front-loading the conclusion; ruthless cutting</dd>
+<dt>Culture</dt><dd>How much context an executive audience expects before the ask.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the bottom-line first sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.6 · Write a 150-word executive note<br>Take a long document from your work and compress it to 150 words: bottom line, ask, risk.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Coaching and developing others</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Growing a colleague without solving it for them</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Coach a colleague through a problem in ten minutes without giving them the answer.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>≥5 open questions</li><li>no advice given before minute eight</li><li>the colleague names the next step</li><li>a date is agreed</li></ul></dd>
+<dt>Vocabulary</dt><dd>to unpack · blind spot · stretch · ownership · to hold space</dd>
+<dt>Chunks</dt><dd>"What have you already tried?" · "What would good look like?" · "What’s stopping you?" · "What will you do by Friday?"</dd>
+<dt>Grammar</dt><dd>question forms that do not lead; hypotheticals; silence as a tool</dd>
+<dt>Culture</dt><dd>Whether coaching or directing is expected from a senior colleague.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce three coaching questions, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C1.7 · Record a coaching sequence<br>Record five open questions you would ask a colleague about a real problem, in the order you would ask them.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Communicating change</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Announcing and selling a change people did not ask for</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Announce a change: rationale, impact, what stays the same, support, and take two objections.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Rationale before instruction</li><li>impact stated concretely</li><li>names what does not change</li><li>one form of support offered</li><li>objections answered, not deflected</li></ul></dd>
+<dt>Vocabulary</dt><dd>rationale · transition · to phase in · impact · to consult</dd>
+<dt>Chunks</dt><dd>"Here’s why we’re doing this." · "What changes for you is…" · "What doesn’t change is…" · "Here’s what we’ll do to support you."</dd>
+<dt>Grammar</dt><dd>future forms; passive to depersonalise; concessive structures</dd>
+<dt>Culture</dt><dd>How much consultation is expected before an announcement.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the rationale in three sentences, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.8 · Draft a change announcement<br>Draft a 200-word announcement for a real change: why, what changes, what does not, support, next step.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Stakeholder management</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Influencing people who do not report to you</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Map four stakeholders and pre-align two of them before a decision meeting.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Names what each stakeholder wants</li><li>sequences who is spoken to first and why</li><li>one pre-alignment conversation scripted</li><li>anticipates the likely veto</li></ul></dd>
+<dt>Vocabulary</dt><dd>sponsor · alignment · to socialise an idea · sequencing · veto</dd>
+<dt>Chunks</dt><dd>"Before we take this to the group…" · "What would you need to see?" · "I wanted to sound you out on…" · "Where do you sit on this?"</dd>
+<dt>Grammar</dt><dd>indirect questions; conditional proposals; hedged asks</dd>
+<dt>Culture</dt><dd>Whether pre-alignment reads as diligence or as politics.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one pre-alignment opener, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.9 · Map your real stakeholders<br>For a real decision: list four stakeholders, what each wants, who you speak to first and why.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Challenging an argument</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Listening critically and pushing back with precision</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Steelman an argument you disagree with, then challenge one premise with evidence.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Restates the argument so its holder would accept the restatement</li><li>challenges a premise, not the person</li><li>brings one piece of evidence</li><li>leaves the relationship intact</li></ul></dd>
+<dt>Vocabulary</dt><dd>premise · assumption · to conflate · evidence · to steelman</dd>
+<dt>Chunks</dt><dd>"Let me make sure I’ve understood the argument." · "That assumes…" · "The strongest version of your point is…, and even then…" · "What evidence would change your mind?"</dd>
+<dt>Grammar</dt><dd>concessive clauses; conditional challenge; nominalisation</dd>
+<dt>Culture</dt><dd>Where open challenge is welcomed and where it is escalation.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the steelman restatement, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.10 · Steelman and challenge<br>Take a position you disagree with at work. Write its strongest version, then your single best challenge.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Public speaking</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Production</span></div>
+<p class="scen">Delivering to a room that did not have to come</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Deliver a five-minute talk with one through-line, one story and one callback.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>One idea, stated twice</li><li>a story that earns its place</li><li>a callback at the close</li><li>no reading from slides</li></ul></dd>
+<dt>Vocabulary</dt><dd>to land · cadence · callback · through-line · to hold the room</dd>
+<dt>Chunks</dt><dd>"I want to leave you with one idea." · "Let me tell you about…" · "Here’s the uncomfortable part." · "So what does that mean for you?"</dd>
+<dt>Grammar</dt><dd>rhetorical devices; contrast pairs; controlled repetition</dd>
+<dt>Culture</dt><dd>How much personal disclosure an audience expects from a speaker.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the opening and the callback, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C1.11 · Record your opening and close<br>Record the first 45 seconds and the last 30 seconds of a real talk. They must connect.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Contracts and formal correspondence</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing where every word is read literally</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write a formal letter that asserts a position without conceding anything.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>States the position unambiguously</li><li>concedes nothing by implication</li><li>one deadline</li><li>nothing that would embarrass you if quoted</li></ul></dd>
+<dt>Vocabulary</dt><dd>notwithstanding · to be entitled to · liability · to be deemed · without prejudice</dd>
+<dt>Chunks</dt><dd>"For the avoidance of doubt…" · "Subject to…" · "This is without prejudice to…" · "We reserve the right to…"</dd>
+<dt>Grammar</dt><dd>formal register; conditionals of obligation; precision modality</dd>
+<dt>Culture</dt><dd>How formal correspondence is read when relations sour.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one precise, non-conceding sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C1.12 · Draft a formal position letter<br>Draft a formal letter on a real matter: position, basis, deadline, next step if unmet.</div>
+</article>
+</section>
+<section class="level" id="C2">
+<div class="lvhead"><span class="badge">C2</span><span class="prof">Operate at board level — advocate, handle crisis, shift register at will, mediate conflict across cultures.</span></div>
+<div class="lvmeta"><span>Reading · 4 units</span><span>Listening · 4 units</span><span>Speaking · 11 units</span><span>Writing · 8 units</span><span>Mediation · U4, U6, U12</span><span>36 lessons</span></div>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 1 · LESSONS 1–3</span><h3>Board-level advocacy</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Reading</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Arguing a contested recommendation to a board</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Argue a contested recommendation to a board and survive sustained challenge.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Case stated in three points</li><li>concedes what is true without losing the argument</li><li>challenges a premise explicitly</li><li>closes on the ask</li></ul></dd>
+<dt>Vocabulary</dt><dd>mandate · fiduciary · trade-off · conviction · precedent</dd>
+<dt>Chunks</dt><dd>"The case rests on three things." · "I’d challenge that premise." · "That is a fair objection, and here is the trade-off." </dd>
+<dt>Grammar</dt><dd>concessive structures; precision hedging; emphatic inversion</dd>
+<dt>Culture</dt><dd>How much dissent a board expects to hear before deciding.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the three-point case, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.1 · Record your three-point case<br>Record two minutes making the case for a real recommendation, in exactly three points, with one conceded trade-off.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 2 · LESSONS 4–6</span><h3>Crisis communication</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Holding statement and hostile questions</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Deliver a 90-second holding statement and take two hostile questions.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Separates known from unknown</li><li>commits to a next update with a time</li><li>accepts responsibility without speculating</li><li>stays on message under pressure</li></ul></dd>
+<dt>Vocabulary</dt><dd>holding statement · exposure · accountability · remediation · timeline</dd>
+<dt>Chunks</dt><dd>"Here’s what we know, and what we don’t." · "We will update by…" · "I won’t speculate on that." · "That is on us."</dd>
+<dt>Grammar</dt><dd>careful modality; avoiding admission while accepting responsibility</dd>
+<dt>Culture</dt><dd>How much apology is expected before facts, in different markets.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the holding statement, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.2 · Record a 90-second holding statement<br>Draft and record a holding statement for a plausible incident in your organisation. Include the next-update time.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 3 · LESSONS 7–9</span><h3>Nuance, irony and register shifting</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Saying the same thing three ways</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Deliver the same message three ways: to a peer, to a client, to a regulator.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Content identical across the three</li><li>register visibly different</li><li>one use of understatement</li><li>no unintended offence in the formal version</li></ul></dd>
+<dt>Vocabulary</dt><dd>understatement · subtext · rapport · edge · deniability</dd>
+<dt>Chunks</dt><dd>"That’s… interesting." · "With respect, …" · "Let’s just say…" · "I’ll be blunt."</dd>
+<dt>Grammar</dt><dd>register shifting; understatement and irony; implicature</dd>
+<dt>Culture</dt><dd>Where irony reads as wit and where it reads as evasion.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the same message in two registers, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.3 · One message, three registers<br>Write the same difficult message three times: to a peer, a client, a regulator. Mark what changed and why.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 4 · LESSONS 10–12</span><h3>Mediating conflict between parties</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Interaction</span></div>
+<p class="scen">Bringing two colleagues to a written common position</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Mediate a dispute between two colleagues to a written common position — mediation flagship.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Reformulates each position without distorting it</li><li>names the shared interest</li><li>neither party’s point is lost</li><li>produces a written position both accept</li></ul></dd>
+<dt>Vocabulary</dt><dd>position · interest · common ground · to de-escalate · settlement</dd>
+<dt>Chunks</dt><dd>"What I hear you both saying is…" · "Where you agree is…" · "Let me put that back to you differently." · "Can you both live with…?"</dd>
+<dt>Grammar</dt><dd>reformulation; neutral reporting; de-escalating language</dd>
+<dt>Culture</dt><dd>Whether a mediator is expected to be neutral or senior.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one reformulation of an opposing position, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.4 · Write the common position<br>Take a real disagreement, write each side’s position in one neutral sentence, then the common position both could sign.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 5 · LESSONS 13–15</span><h3>Writing in someone else’s voice</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Drafting for a senior signature</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Draft a 200-word statement for your CEO’s signature.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Matches the signer’s register, not your own</li><li>one clear position</li><li>nothing that cannot be defended publicly</li><li>under 200 words</li></ul></dd>
+<dt>Vocabulary</dt><dd>register · cadence · byline · approval · house style</dd>
+<dt>Chunks</dt><dd>"In their words, not yours." · "This is the line we hold." · "For signature." </dd>
+<dt>Grammar</dt><dd>style matching; controlled register; institutional voice</dd>
+<dt>Culture</dt><dd>How much a senior voice is expected to sound personal or institutional.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the first paragraph in the signer’s voice, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.5 · Draft for a senior signature<br>Draft a 200-word statement for a senior colleague’s signature. Mark the three phrases you chose for their voice, not yours.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 6 · LESSONS 16–18</span><h3>Cross-cultural strategic mediation</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="md">Mediation</span><span class="ls">Production</span></div>
+<p class="scen">Relaying a hard decision across two cultures</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Relay a hard decision across two cultures without losing content or face.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Decision unchanged in substance</li><li>framing adapted to each audience</li><li>one face-saving reformulation</li><li>escalation path stated</li></ul></dd>
+<dt>Vocabulary</dt><dd>face · indirectness · hierarchy · consensus · escalation path</dd>
+<dt>Chunks</dt><dd>"Let me put that another way for the team in…" · "The decision stands; how we get there can flex." · "What would make this workable for you?"</dd>
+<dt>Grammar</dt><dd>pragmatic reformulation; face-saving structures; controlled directness</dd>
+<dt>Culture</dt><dd>What counts as saving face, and what counts as evasion, in each market.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the same decision framed for two audiences, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.6 · Frame one decision for two markets<br>Record the same hard decision twice, framed for two teams in different countries. Say what you changed and why.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 7 · LESSONS 19–21</span><h3>Humour, rapport and relationship capital</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Interaction</span></div>
+<p class="scen">Building the credit you spend later</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Defuse a tense moment with humour without trivialising the issue, then return to substance.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>The tension drops</li><li>nobody is the butt of the joke</li><li>the substance is returned to within two turns</li><li>nothing said that could be quoted badly</li></ul></dd>
+<dt>Vocabulary</dt><dd>rapport · self-deprecation · timing · credit · to disarm</dd>
+<dt>Chunks</dt><dd>"I’ll admit I got that wrong." · "You’ll forgive me for saying…" · "Between us…" · "I owe you one."</dd>
+<dt>Grammar</dt><dd>irony; self-deprecation; register modulation</dd>
+<dt>Culture</dt><dd>Where humour builds trust and where it destroys authority.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one disarming line and the return to substance, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.7 · Script one disarming line<br>Write one line that would defuse a real tense moment you have faced, plus the sentence that returns to the point.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 8 · LESSONS 22–24</span><h3>Negotiating at the limit</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Deadlock, walk-away and the last concession</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a negotiation to the edge: signal your limit credibly and give the other side a way out.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>The limit is stated once and held</li><li>the other side is given a face-saving option</li><li>walking away is signalled without theatre</li><li>the relationship survives either outcome</li></ul></dd>
+<dt>Vocabulary</dt><dd>deadlock · to walk away · final offer · to save face · reciprocity</dd>
+<dt>Chunks</dt><dd>"We’re a long way apart." · "That is as far as I can go." · "If that’s the position, we should stop." · "Give me something I can take back."</dd>
+<dt>Grammar</dt><dd>conditional ultimatums; controlled finality; face-saving formulations</dd>
+<dt>Culture</dt><dd>Whether walking away is a tactic or an insult in this market.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the limit statement, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.8 · Script your walk-away<br>Record the two sentences you would use to signal your real limit, and the one that gives the other side a way out.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 9 · LESSONS 25–27</span><h3>Media and public scrutiny</h3></div>
+<div class="uskills"><span class="sk">Listening</span><span class="sk">Speaking</span><span class="ls">Interaction</span></div>
+<p class="scen">Being interviewed by someone who is not on your side</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Handle three questions, one of them loaded, without repeating the loaded framing.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Never repeats the hostile framing</li><li>bridges to the message twice</li><li>declines once with a reason</li><li>corrects one false premise</li></ul></dd>
+<dt>Vocabulary</dt><dd>on the record · to bridge · loaded question · attribution · to decline</dd>
+<dt>Chunks</dt><dd>"I wouldn’t put it that way." · "What I can tell you is…" · "That’s not a question I can answer, and here’s why." · "Let me correct one thing."</dd>
+<dt>Grammar</dt><dd>bridging structures; controlled refusal; precision under pressure</dd>
+<dt>Culture</dt><dd>What "off the record" means, and does not, in different places.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the bridge from a loaded question, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.9 · Answer three hostile questions<br>Record answers to three hard questions about your work, one of them loaded. Do not repeat the framing.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 10 · LESSONS 28–30</span><h3>Institutional and legal register</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Writing for the record</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Write a document that will be read years later by someone who was not there.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Every claim attributable</li><li>no unqualified assertion that cannot be evidenced</li><li>reads the same in isolation as in context</li><li>dated and scoped</li></ul></dd>
+<dt>Vocabulary</dt><dd>to place on record · pursuant to · material · to attest · in good faith</dd>
+<dt>Chunks</dt><dd>"For the record…" · "As previously communicated…" · "We note, without accepting…" · "This should be read alongside…"</dd>
+<dt>Grammar</dt><dd>archaic and formal connectors; passive agency; qualified assertion</dd>
+<dt>Culture</dt><dd>How institutional memory is built and used.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one on-the-record sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.10 · Write one paragraph for the record<br>Write one paragraph documenting a real decision as it should read in five years, to someone who was not present.</div>
+</article>
+<article class="unit">
+<div class="uhead"><span class="un">UNIT 11 · LESSONS 31–33</span><h3>Thought leadership</h3></div>
+<div class="uskills"><span class="sk">Speaking</span><span class="sk">Writing</span><span class="ls">Production</span></div>
+<p class="scen">Shaping a debate rather than joining it</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Take a settled industry view and reframe it defensibly in 400 words.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Names the orthodoxy fairly</li><li>reframes rather than contradicts</li><li>one piece of evidence</li><li>survives the obvious counter-argument</li></ul></dd>
+<dt>Vocabulary</dt><dd>frame · orthodoxy · to reframe · contrarian · consensus</dd>
+<dt>Chunks</dt><dd>"The question everyone asks is… I think it’s the wrong question." · "The orthodoxy holds that…" · "What if the opposite were true?"</dd>
+<dt>Grammar</dt><dd>reframing structures; rhetorical questions; measured provocation</dd>
+<dt>Culture</dt><dd>How much provocation a professional audience rewards.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce the reframing sentence, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Writing</b> — C2.11 · Write your reframe<br>Write 400 words reframing a settled view in your field: the orthodoxy, your reframe, one piece of evidence, the counter you accept.</div>
+</article>
+<article class="unit med">
+<div class="uhead"><span class="un">UNIT 12 · LESSONS 34–36</span><h3>Mentoring across cultures</h3></div>
+<div class="uskills"><span class="sk">Reading</span><span class="sk">Listening</span><span class="sk">Speaking</span><span class="sk">Writing</span><span class="md">Mediation</span><span class="ls">Interaction</span></div>
+<p class="scen">Transferring judgement, not just knowledge</p>
+<dl class="spec">
+<dt>Mission</dt><dd class="mission">Transfer one piece of professional judgement to a mentee from another culture, checking how it lands.</dd>
+<dt>Success criteria</dt><dd><ul class="crit"><li>Separates the rule from the judgement</li><li>names one cultural variable explicitly</li><li>checks how it was understood</li><li>the mentee reformulates it in their own terms</li></ul></dd>
+<dt>Vocabulary</dt><dd>tacit knowledge · judgement · to calibrate · norm · to translate practice</dd>
+<dt>Chunks</dt><dd>"Here’s what I would weigh." · "In this context that reads differently." · "The rule is…, the judgement is…" · "What would you do, and why?"</dd>
+<dt>Grammar</dt><dd>conditional reasoning aloud; hedged generalisation; cultural qualification</dd>
+<dt>Culture</dt><dd>What counts as good judgement is not the same everywhere.</dd>
+<dt>Immediate<br>assessment</dt><dd>Produce one rule-versus-judgement explanation, checked against the target chunks. Feedback in amber, never red, specific and with an example. Unlimited retry.</dd>
+</dl>
+<div class="hw"><b>Homework · Speaking</b> — C2.12 · Teach one piece of judgement<br>Record two minutes teaching one professional judgement call: the rule, the judgement, and when the judgement overrides the rule.</div>
+</article>
+</section>
+<p class="foot"><b>Curriculum design and method</b> © 2026 Ana Eslava-Graterol — MLLDE (UPV) · ProfeAnaEslavaEdTech. <b>Teacher Board</b>: a section of Talketika's teacher dashboard, developed jointly; the implementation engineering is Talketika's. TK Coach and «Capi» — the AI tutor — are a separate Talketika product, suggested to learners but not part of this course.<br>Levels and descriptors © Council of Europe — CEFR Companion Volume (2020), paraphrased, not reproduced. Content reference: English Profile (EVP/EGP) and Cambridge Business English © Cambridge University Press &amp; Assessment, cited not reproduced, not used as a scale.<br>Transparency note: prepared with generative-AI assistance; reviewed, edited and approved under the author's responsibility, in the spirit of Art. 50 of the EU AI Act (Reg. (EU) 2024/1689).</p>
+</div></div>
