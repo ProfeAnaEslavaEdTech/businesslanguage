@@ -23,7 +23,7 @@
   :root[data-theme="dark"]{ --ink:#eef0f8; --mut:#aeb3cc; --soft:#9096b3; --indigo:#3B5BD6; --accent:#9db2ff; --violet:#a99cff; --teal:#2dd4bf; --line:#2a2d44; --bg:#0f1120; --card:#171a2b; --chip:#1e2138;
     --rose:#2a1720; --roseln:#5b2233; --sky:#122033; --skyln:#1e3a5f; --amber:#2a2410; --amberln:#5b4d1a; --violetbg:#1c1733; --violetln:#3a2f5f; }
   /* Theme toggle */
-  .theme-toggle{position:fixed;top:14px;right:14px;z-index:100;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:19px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(20,30,80,.14)}
+  .theme-toggle{position:fixed;top:14px;right:14px;z-index:100;min-height:40px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 12px Inter,system-ui,sans-serif;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(20,30,80,.14)}
   .theme-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   @media print{.theme-toggle{display:none}}
   *{box-sizing:border-box}
@@ -209,11 +209,12 @@
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+<a href="https://profeanaeslavaedtech.github.io/portofolio/" style="position:fixed;top:16px;left:16px;z-index:100;font:700 11px 'Inter',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none">&larr; Portfolio</a>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">Dark</button>
 <script>
 (function(){var root=document.documentElement,KEY='be_theme',s=null;try{s=localStorage.getItem(KEY);}catch(e){}
 if(s==='dark'||s==='light')root.setAttribute('data-theme',s); // apply now, before paint
-function upd(){var d=root.getAttribute('data-theme'),isDark=d==='dark'||(!d&&window.matchMedia('(prefers-color-scheme:dark)').matches),b=document.getElementById('themeToggle');if(b){b.textContent=isDark?'☀️':'🌙';b.setAttribute('aria-label',isDark?'Switch to light mode':'Switch to dark mode');b.setAttribute('aria-pressed',String(isDark));}}
+function upd(){var d=root.getAttribute('data-theme'),isDark=d==='dark'||(!d&&window.matchMedia('(prefers-color-scheme:dark)').matches),b=document.getElementById('themeToggle');if(b){b.textContent=isDark?'Light':'Dark';b.setAttribute('aria-label',isDark?'Switch to light mode':'Switch to dark mode');b.setAttribute('aria-pressed',String(isDark));}}
 document.addEventListener('DOMContentLoaded',function(){upd();document.getElementById('themeToggle').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),next=cur==='dark'?'light':'dark';try{localStorage.setItem(KEY,next);}catch(e){}root.setAttribute('data-theme',next);upd();});});})();
 </script>
 <div class="wrap">
@@ -231,17 +232,17 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
   <div class="rolebar">
     <span class="rl">Viewing as</span>
     <select id="roleSel" aria-label="Role">
-      <option value="teacher" selected>👤 Teacher — in the Teacher Dashboard</option>
-      <option value="it">🧑‍💻 IT · integration</option>
-      <option value="product">📊 Product owner · Talketika</option>
+      <option value="teacher" selected>Teacher — in the Teacher Dashboard</option>
+      <option value="it">IT · integration</option>
+      <option value="product">Product owner · Talketika</option>
     </select>
     <span id="roleDesc" class="rd"></span>
   </div>
 
   <div id="mainTabs" class="tabnav" role="tablist" aria-label="Views">
-    <button type="button" role="tab" id="tab-builder" aria-controls="panel-builder" aria-selected="true" data-panel="panel-builder">👩‍🏫 Teacher</button>
-    <button type="button" role="tab" id="tab-goal" aria-controls="panel-goal" aria-selected="false" data-panel="panel-goal">🎯 Goal Plan · A1 → C2</button>
-    <button type="button" role="tab" id="tab-it" aria-controls="panel-it" aria-selected="false" data-panel="panel-it">🧑‍💻 IT implementation</button>
+    <button type="button" role="tab" id="tab-builder" aria-controls="panel-builder" aria-selected="true" data-panel="panel-builder">Teacher</button>
+    <button type="button" role="tab" id="tab-goal" aria-controls="panel-goal" aria-selected="false" data-panel="panel-goal">Goal Plan · A1 → C2</button>
+    <button type="button" role="tab" id="tab-it" aria-controls="panel-it" aria-selected="false" data-panel="panel-it">IT implementation</button>
   </div>
 
 
@@ -275,7 +276,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       </div>
       <div class="actions" style="margin-top:12px">
         <button id="btnSrcAdd" type="button">＋ Add source</button>
-        <button id="btnGoalDev" type="button">✨ Refresh the Goal Plan against these sources</button>
+        <button id="btnGoalDev" type="button">Refresh the Goal Plan against these sources</button>
       </div>
       <div id="srcList" class="srclist"></div>
       <p id="goalAiState" class="tag" style="margin-top:12px"></p>
@@ -500,7 +501,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
     <ul class="pill-list">
       <li><b>Authentic assessment = the gate.</b> Mastery of the real-world Mission, not a test score.</li>
       <li><b>Feedback ladder → human.</b> Self-check against a rubric → peer/teacher feedback → optional recorded model answer.</li>
-      <li><b>"Don't give up!" kept.</b> Errors in <b>amber with 🤔</b>, never red; specific + example; retry always offered; success celebrated (coins + badge).</li>
+      <li><b>"Don't give up!" kept.</b> Errors in <b>amber with </b>, never red; specific + example; retry always offered; success celebrated (coins + badge).</li>
     </ul>
     <h3 style="font-size:16px;margin:18px 0 8px">Sample Mission rubric — B1 Kick-off</h3>
     <div class="tbl"><table class="rubric">
@@ -532,7 +533,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
   <p class="foot">
     CEFR (standard) → English Profile + Cambridge Business English (content) → MLLDE IPO + CLIL 4Cs (method) → 12 Business English units (product).<br>
     Mediation deferred to B2+ · AI-voice/mentor deliberately omitted · formative feedback is rubric- and teacher-based.<br>
-    <b>Curriculum design and method</b> © 2026 Ana Eslava-Graterol — MLLDE (UPV) · ProfeAnaEslavaEdTech.<br>
+    <b>Curriculum design and method</b> 2026 Ana Eslava-Graterol — MLLDE (UPV) · ProfeAnaEslavaEdTech.<br>
     <b>Teacher Board</b>: a section of Talketika's teacher dashboard, developed jointly; the implementation engineering is Talketika's. <b>TK Coach</b> and «Capi» — the AI tutor — are a separate Talketika product, suggested to learners but not part of this course.
   </p>
   
@@ -543,7 +544,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
   <!-- ═══════════ TAB 5 · LESSON-PLAN BUILDER ═══════════ -->
   <div id="panel-builder" class="panel" role="tabpanel" aria-labelledby="tab-builder" tabindex="0" hidden>
     <section id="startSec">
-      <h2><span class="num">▶</span>Start here</h2>
+      <h2>Start here</h2>
       <p class="lead">Pick the group's level and what you want to work on. The board opens the lesson that is due for it and fills the plan — you do not go looking for a unit.</p>
       <div class="fgrid">
         <label>Student level
@@ -557,7 +558,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
         </label>
       </div>
       <div class="actions" style="margin-top:14px">
-        <button id="btnStart" type="button">📘 Open the lesson plan</button>
+        <button id="btnStart" type="button">Open the lesson plan</button>
       </div>
       <p id="startState" class="tag" style="margin-top:12px"></p>
     </section>
@@ -593,9 +594,9 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       <p class="lead">Reference: ALTE / Cambridge English Business "Can Do" framework (occupational domain) — Business Preliminary (B1) · Vantage (B2) · Higher (C1). Tick the statements this lesson targets. <em>Verify exact wording against the official source.</em></p>
       <div id="candoBox"></div>
       <label class="fld" style="margin-top:12px">Additional / custom can-do <textarea id="f_cando" placeholder="Add or refine the target can-do statement…"></textarea></label>
-      <h3>🔤 Target vocabulary <span style="font-weight:400;color:var(--soft)">— from the unit; untick what this lesson will not reach</span></h3>
+      <h3>Target vocabulary <span style="font-weight:400;color:var(--soft)">— from the unit; untick what this lesson will not reach</span></h3>
       <div id="vocBox" class="chipgrid"></div>
-      <h3>🧩 Target chunks <span style="font-weight:400;color:var(--soft)">— the ones the mission will be checked against</span></h3>
+      <h3>Target chunks <span style="font-weight:400;color:var(--soft)">— the ones the mission will be checked against</span></h3>
       <div id="chkBox" class="chipgrid"></div>
     </section>
 
@@ -603,15 +604,15 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       <h2><span class="num">C</span>Gamification <span style="font-weight:400;font-size:15px;color:var(--soft);font-family:Inter,sans-serif">· optional</span></h2>
       <p class="lead">Collapsed, and <b>left out of the plan unless you open it</b>. Most lessons do not need it. The Werbach &amp; Hunter pyramid runs top to bottom: <b>Dynamics</b> (the big-picture experience) → <b>Mechanics</b> (the processes that drive action) → <b>Components</b> (the concrete building blocks).</p>
       <details class="disc" id="discDyn">
-        <summary>🎭 Dynamics <small>— the experience</small></summary>
+        <summary>Dynamics <small>— the experience</small></summary>
         <div class="body"><div id="dynBox" class="chipgrid"></div></div>
       </details>
       <details class="disc" id="discMech">
-        <summary>⚙️ Mechanics <small>— the processes</small></summary>
+        <summary>Mechanics <small>— the processes</small></summary>
         <div class="body"><div id="mechBox" class="chipgrid"></div></div>
       </details>
       <details class="disc" id="discComp">
-        <summary>🧩 Components <small>— the building blocks</small></summary>
+        <summary>Components <small>— the building blocks</small></summary>
         <div class="body"><div id="compBox" class="chipgrid"></div></div>
       </details>
       <p id="gamState" class="tag" style="margin-top:12px"></p>
@@ -668,7 +669,7 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       </div>
       <label class="fld" style="margin-top:12px">Which part <textarea id="f_srcnotes" placeholder="e.g. 4:20–7:00 · pages 3–5 · the second half only"></textarea></label>
       <div class="actions" style="margin-top:14px">
-        <button id="btnDevelop" type="button">✨ Develop materials from this source</button>
+        <button id="btnDevelop" type="button">Develop materials from this source</button>
       </div>
       <p id="aiState" class="tag" style="margin-top:12px"></p>
       <pre id="briefOut" class="flow" hidden></pre>
@@ -677,11 +678,11 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
 
     <p class="lead" style="margin:0 0 10px"><b>Saving is what makes this lesson appear after class.</b> <b>Save plan</b> stores it against this lesson of this level, so the Validate tab can preload your criteria, vocabulary, chunks, mission and homework when you come back to mark what happened. The PDF is only a copy for you — printing it does not save anything.</p>
     <div class="actions no-print">
-      <button id="btnSave" type="button">💾 Save plan · needed to validate later</button>
-      <button id="btnJson" type="button">⬇️ Download JSON</button>
-      <button id="btnPdf" type="button">🖨️ Save lesson plan as PDF</button>
-      <button id="btnSpec" type="button">⬇️ Integration spec (JSON)</button>
-      <button id="btnOverview" type="button">🖨️ Curriculum overview (PDF)</button>
+      <button id="btnSave" type="button">Save plan · needed to validate later</button>
+      <button id="btnJson" type="button">Download JSON</button>
+      <button id="btnPdf" type="button">Save lesson plan as PDF</button>
+      <button id="btnSpec" type="button">Integration spec (JSON)</button>
+      <button id="btnOverview" type="button">Curriculum overview (PDF)</button>
       <button id="btnReset" type="button">↺ Reset</button>
     </div>
   
@@ -701,8 +702,8 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       <div id="valCriteria"></div>
       <label class="fld" style="margin-top:16px">Anything else worth recording <textarea id="f_valnote" placeholder="One line you will want to read before the next class…"></textarea></label>
       <div class="actions" style="margin-top:16px">
-        <button id="btnValSave" type="button">💾 Save validation</button>
-        <button id="btnCsv" type="button">⬇️ Export CSV</button>
+        <button id="btnValSave" type="button">Save validation</button>
+        <button id="btnCsv" type="button">Export CSV</button>
       </div>
       <p id="valState" class="tag" style="margin-top:12px"></p>
     </section>
@@ -759,9 +760,9 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
       <div class="tbl"><table>
         <thead><tr><th>Role</th><th>Sees</th><th>Can download</th></tr></thead>
         <tbody>
-          <tr><td><b>👤 Teacher</b><br>in the Teacher Dashboard</td><td>Goal Plan · Lesson Plan · Validate</td><td>The <b>lesson plan as PDF</b>, to keep. <b>Not</b> the plan JSON, <b>not</b> the integration spec, <b>not</b> the Business English curriculum map.</td></tr>
-          <tr><td><b>🧑‍💻 IT</b><br>integration</td><td>Goal Plan · Lesson Plan · Validate</td><td>Plan JSON · validation CSV · the integration spec below</td></tr>
-          <tr><td><b>📊 Product owner</b><br>Talketika</td><td>Curriculum · Goal Plan</td><td>The <b>curriculum overview as PDF</b> — what is taught and why</td></tr>
+          <tr><td><b>Teacher</b><br>in the Teacher Dashboard</td><td>Goal Plan · Lesson Plan · Validate</td><td>The <b>lesson plan as PDF</b>, to keep. <b>Not</b> the plan JSON, <b>not</b> the integration spec, <b>not</b> the Business English curriculum map.</td></tr>
+          <tr><td><b>IT</b><br>integration</td><td>Goal Plan · Lesson Plan · Validate</td><td>Plan JSON · validation CSV · the integration spec below</td></tr>
+          <tr><td><b>Product owner</b><br>Talketika</td><td>Curriculum · Goal Plan</td><td>The <b>curriculum overview as PDF</b> — what is taught and why</td></tr>
         </tbody>
       </table></div>
       <p class="warn"><b>The UI gating above is a mock, not access control.</b> Hiding a tab in the browser hides nothing: the file is served whole and anyone can read it. In the Teacher Dashboard this must be enforced <b>server-side</b> — a teacher’s token must not be able to fetch the curriculum payload or this spec at all, whatever the interface shows. Treat the role switcher here as a description of the requirement, not as its implementation.</p>
@@ -1562,7 +1563,7 @@ function buildPhases(){ const box=$('phaseBox'); box.innerHTML=''; phaseRows=[];
 }); updateTimes(); }
 function updateTimes(){ const d=currentDur(); let total=0; phaseRows.forEach(r=>{ r.min = d===60?r.m60:(d===50?r.m50:r.m30); r.pt.textContent=r.min+' min'; total+=r.min; });
   const note = d===50 ? ' · 5 planning + 40 teaching + 5 validation & assignment' : '';
-  $('timeTotal').textContent='⏱️ Total: '+total+' min ('+d+'-minute lesson)'+note; }
+  $('timeTotal').textContent='Total: '+total+' min ('+d+'-minute lesson)'+note; }
 
 /* ---- Goal Plan · levels, sessions, status and coverage ---- */
 let currentLevel='B1', currentSession=null;
@@ -1780,22 +1781,22 @@ function briefText(pl){
 }
 async function developMaterials(){
   const pl=developPayload();
-  if(!pl.source.reference){ $('aiState').textContent='🤔 Add the source reference first — the URL or the file name.'; return; }
+  if(!pl.source.reference){ $('aiState').textContent='Add the source reference first — the URL or the file name.'; return; }
   if(AI.enabled){
-    $('aiState').textContent='⏳ Developing from your source…';
+    $('aiState').textContent='Developing from your source…';
     try{
       const out=await aiCall('/develop-lesson',pl);
       $('f_materials').value=[out.model_dialogue,'',(out.gap_fill||[]).join('\n'),'',(out.comprehension||[]).join('\n'),'',out.mission_brief,
         (out.gaps&&out.gaps.length)?('\n\nGAPS — the source does not cover: '+out.gaps.join(' · ')):''].join('\n');
-      $('aiState').textContent='✅ Materials developed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' gap(s) declared'):'');
+      $('aiState').textContent='✓ Materials developed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' gap(s) declared'):'');
       renderMinimum(); return;
-    }catch(e){ $('aiState').textContent='⚠️ '+e.message+' — falling back to the brief below.'; }
+    }catch(e){ $('aiState').textContent='! '+e.message+' — falling back to the brief below.'; }
   }
   const t=briefText(pl);
   $('briefOut').textContent=t; $('briefOut').hidden=false;
   copyText(t, ok=>{ $('aiState').textContent = ok
-    ? '📋 Brief copied — paste it into Claude, then paste the materials back below. (No AI endpoint configured on this board.)'
-    : '📋 Brief ready below — select and copy it, then paste the materials back. (No AI endpoint configured.)'; });
+    ? 'Brief copied — paste it into Claude, then paste the materials back below. (No AI endpoint configured on this board.)'
+    : 'Brief ready below — select and copy it, then paste the materials back. (No AI endpoint configured.)'; });
 }
 function copyText(t,cb){
   try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>cb(true),()=>cb(false)); return; } }catch(e){}
@@ -2045,22 +2046,22 @@ function goalBriefText(lv,items){
 }
 async function developGoalPlan(){
   const items=loadSources(currentLevel);
-  if(!items.length){ $('goalAiState').textContent='🤔 Add at least one source first.'; return; }
+  if(!items.length){ $('goalAiState').textContent='Add at least one source first.'; return; }
   const payload={ level:currentLevel, units:unitsOf(currentLevel).map(u=>({n:u.n,title:u.title,mission:u.mission})),
                   sources:items, constraints:['objectives, can-do targets and missions are fixed',
                   'a source may change the scenario and the examples only','derive, do not reproduce','return gaps[] for units the sources cannot ground'] };
   if(AI.enabled){
-    $('goalAiState').textContent='⏳ Refreshing the Goal Plan…';
+    $('goalAiState').textContent='Refreshing the Goal Plan…';
     try{ const out=await aiCall('/develop-goal-plan',payload);
-      $('goalAiState').textContent='✅ '+(out.units||[]).length+' unit(s) refreshed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' left untouched'):'');
+      $('goalAiState').textContent='✓ '+(out.units||[]).length+' unit(s) refreshed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' left untouched'):'');
       return;
-    }catch(e){ $('goalAiState').textContent='⚠️ '+e.message+' — falling back to the brief below.'; }
+    }catch(e){ $('goalAiState').textContent='! '+e.message+' — falling back to the brief below.'; }
   }
   const t=goalBriefText(currentLevel,items);
   $('goalBrief').textContent=t; $('goalBrief').hidden=false;
   copyText(t,ok=>{ $('goalAiState').textContent = ok
-    ? '📋 Brief copied — paste it into Claude to get the refreshed scenarios. (No AI endpoint configured on this board.)'
-    : '📋 Brief ready below — select and copy it. (No AI endpoint configured.)'; });
+    ? 'Brief copied — paste it into Claude to get the refreshed scenarios. (No AI endpoint configured on this board.)'
+    : 'Brief ready below — select and copy it. (No AI endpoint configured.)'; });
 }
 
 /* ---- Start here · level + skill, and the board finds the lesson ----
@@ -2079,11 +2080,11 @@ function pickLesson(lv,skill){
 }
 function startLesson(){
   const lv=$('s_level').value, skill=$('s_skill').value, pick=pickLesson(lv,skill);
-  if(!pick){ $('startState').textContent='🤔 No unit at '+lv+' works '+skill+' — try another skill.'; return; }
+  if(!pick){ $('startState').textContent='No unit at '+lv+' works '+skill+' — try another skill.'; return; }
   currentLevel=lv; renderLevels(); renderGoal(); renderSources();
   const sp=sessionSpec(lv,pick.n);
   openSession(lv,pick.n);
-  $('startState').textContent='📘 '+lv+' · lesson '+pick.n+'/36 — '+sp.unit.title+' · pass '+sp.part+' ('+sp.label+')'
+  $('startState').textContent=''+lv+' · lesson '+pick.n+'/36 — '+sp.unit.title+' · pass '+sp.part+' ('+sp.label+')'
     + (skill?('  ·  one of '+pick.total+' that work '+skill):'')
     + (pick.replanning?'  ·  already planned once — you are editing it':'');
 }
@@ -2104,15 +2105,15 @@ function renderMinimum(){
   const items=minimumItems(), box=$('minBox'); box.innerHTML='';
   items.forEach(it=>{
     const row=ce('div','minrow'+(it.ok?' ok':''));
-    row.append(ce('span','mi',it.ok?'✅':'🤔'));
+    row.append(ce('span','mi',it.ok?'✓':''));
     const t=ce('div','mt'); t.appendChild(ce('b',null,it.label));
     if(!it.ok) t.appendChild(ce('div',null,it.hint));
     row.appendChild(t); box.appendChild(row);
   });
   const done=items.filter(i=>i.ok).length;
   $('minState').textContent = done===items.length
-    ? '✅ Ready for class — the lesson, the validation and the homework describe the same thing.'
-    : '🤔 '+done+'/'+items.length+' — you can still teach; these are the gaps.';
+    ? '✓ Ready for class — the lesson, the validation and the homework describe the same thing.'
+    : ''+done+'/'+items.length+' — you can still teach; these are the gaps.';
 }
 function minimumState(){ const items=minimumItems(); return {met:items.every(i=>i.ok), missing:items.filter(i=>!i.ok).map(i=>i.label)}; }
 
@@ -2126,8 +2127,8 @@ function dueDate(){
 function renderDue(){
   const dt=dueDate();
   $('hwDue').textContent = dt
-    ? '📅 Due '+dt.toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' — '+$('f_hwspacing').value+' days after class'
-    : '📅 Set the class date to get the spaced due date (+1 / +3 / +7)';
+    ? 'Due '+dt.toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' — '+$('f_hwspacing').value+' days after class'
+    : 'Set the class date to get the spaced due date (+1 / +3 / +7)';
 }
 
 /* ---- Build the plan object ---- */
@@ -2141,7 +2142,7 @@ function gamState(){
   const on=Object.keys(GAM_DISC).filter(gamOpen);
   const n=on.reduce((a,g)=>a+gather(g).length,0);
   $('gamState').textContent = on.length
-    ? '🎮 '+n+' selected across '+on.join(', ')+' — included in the plan.'
+    ? ''+n+' selected across '+on.join(', ')+' — included in the plan.'
     : 'Closed — no gamification in this plan. Open a block to include it.';
 }
 function buildPlan(){
@@ -2225,13 +2226,13 @@ $('btnSave').addEventListener('click',()=>{
   if(!currentSession){ alert('Open a session from the Goal Plan first — that is what the plan is saved against.'); return; }
   const k=keyOf(currentSession.level,currentSession.n), all=loadAll();
   all[k]=buildPlan(); saveAll(all); renderGoal(); renderPast();
-  $('minState').textContent='💾 Saved — '+currentSession.level+' lesson '+currentSession.n+'/36 (block '+currentSession.block+', class '+currentSession.inBlock+'/12). '+(all[k].minimum.met?'Ready for class.':'Gaps: '+all[k].minimum.missing.join(', ')+'.');
+  $('minState').textContent='Saved — '+currentSession.level+' lesson '+currentSession.n+'/36 (block '+currentSession.block+', class '+currentSession.inBlock+'/12). '+(all[k].minimum.met?'Ready for class.':'Gaps: '+all[k].minimum.missing.join(', ')+'.');
 });
 $('btnDevelop').addEventListener('click',developMaterials);
 $('btnStart').addEventListener('click',startLesson);
 $('s_level').addEventListener('change',()=>{ $('startState').textContent=''; });
 $('btnSrcAdd').addEventListener('click',()=>{
-  const ref=val('g_srcref'); if(!ref){ $('goalAiState').textContent='🤔 A reference is needed — a URL, a file name or the search terms.'; return; }
+  const ref=val('g_srcref'); if(!ref){ $('goalAiState').textContent='A reference is needed — a URL, a file name or the search terms.'; return; }
   const items=loadSources(currentLevel);
   items.push({kind:$('g_srckind').value, reference:ref, note:val('g_srcnote')});
   saveSources(currentLevel,items); $('g_srcref').value=''; $('g_srcnote').value='';
@@ -2251,7 +2252,7 @@ $('btnValSave').addEventListener('click',()=>{
   pl.validation={ states:states, note:val('f_valnote'), marked:Object.keys(states).length, of:criteriaOf(pl).length };
   all[valKey]=pl; saveAll(all); renderPast(); renderOutputs(pl,states);
   const pend=Object.keys(states).filter(c=>states[c]==='pending').length;
-  $('valState').textContent='💾 Validated — '+pl.validation.marked+'/'+pl.validation.of+' criteria marked'+
+  $('valState').textContent='Validated — '+pl.validation.marked+'/'+pl.validation.of+' criteria marked'+
     (pend?(' · '+pend+' pending, preloaded into the next lesson of this unit.'):' · nothing left pending.');
 });
 $('btnCsv').addEventListener('click',()=>{
