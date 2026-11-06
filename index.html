@@ -792,6 +792,22 @@ document.addEventListener('DOMContentLoaded',function(){upd();document.getElemen
 
 <script>
 "use strict";
+
+/* ===== Bilingual (EN/ES) runtime ===== */
+function LANG(){ return document.documentElement.getAttribute('data-lang')==='es'?'es':'en'; }
+function L(en,es){ return LANG()==='es'?es:en; }
+function bsp(en,es){ var w=document.createElement('span'); var a=document.createElement('span'); a.className='lang-en'; a.textContent=en; var b=document.createElement('span'); b.className='lang-es'; b.textContent=es; w.appendChild(a); w.appendChild(b); return w; }
+const TITLE_ES={"Hello and who I am":"Hola y quién soy","My job, my workplace":"Mi trabajo, mi lugar de trabajo","Numbers, dates and times":"Números, fechas y horas","Simple requests and offers":"Peticiones y ofrecimientos sencillos","Phone and short messages":"Teléfono y mensajes breves","Filling in a form":"Rellenar un formulario","Where things are":"Dónde están las cosas","Days, routines and schedules":"Días, rutinas y horarios","Short notes and simple emails":"Notas breves y correos sencillos","Money, prices and paying":"Dinero, precios y pagos","Sorry, could you repeat that?":"Perdona, ¿puedes repetir?","Goodbye and next steps":"Despedida y próximos pasos","Simple business emails":"Correos de empresa sencillos","Describing your daily work":"Describir tu trabajo diario","Making appointments":"Concertar citas","Orders, prices and quantities":"Pedidos, precios y cantidades","Giving simple instructions":"Dar instrucciones sencillas","Something isn’t working":"Algo no funciona","Talking about past work":"Hablar de trabajo pasado","Plans and arrangements":"Planes y quedadas","Comparing options":"Comparar opciones","Welcoming a visitor":"Dar la bienvenida a una visita","Taking and passing on messages":"Tomar y transmitir mensajes","Kicking Off the Project":"Arrancar el proyecto","Writing business emails":"Escribir correos de empresa","Presenting a project":"Presentar un proyecto","Reporting progress":"Informar del avance","Explaining a process":"Explicar un proceso","Summarising a document":"Resumir un documento","Handling routine problems":"Gestionar problemas rutinarios","Taking part in a meeting":"Participar en una reunión","Customer service basics":"Fundamentos de atención al cliente","Negotiating a deal":"Negociar un acuerdo","Presentations":"Presentaciones","Cross-team briefing":"Briefing entre equipos","Managing projects and risks":"Gestionar proyectos y riesgos","Recruiting and being recruited":"Reclutar y ser reclutado","Networking and relationships":"Hacer networking y relaciones","Explaining data and trends":"Explicar datos y tendencias","Managing conflict in a team":"Gestionar el conflicto en un equipo","Remote and asynchronous communication":"Comunicación remota y asíncrona","Leading a difficult conversation":"Liderar una conversación difícil","Chairing high-stakes meetings":"Moderar reuniones de alto riesgo","Executive writing":"Escritura ejecutiva","Coaching and developing others":"Formar y desarrollar a otros","Communicating change":"Comunicar el cambio","Stakeholder management":"Gestión de partes interesadas","Challenging an argument":"Rebatir un argumento","Public speaking":"Hablar en público","Contracts and formal correspondence":"Contratos y correspondencia formal","Board-level advocacy":"Defensa ante el consejo de administración","Crisis communication":"Comunicación de crisis","Nuance, irony and register shifting":"Matiz, ironía y cambio de registro","Mediating conflict between parties":"Mediar un conflicto entre partes","Writing in someone else’s voice":"Escribir con la voz de otra persona","Cross-cultural strategic mediation":"Mediación estratégica intercultural","Humour, rapport and relationship capital":"Humor, rapport y capital relacional","Negotiating at the limit":"Negociar al límite","Media and public scrutiny":"Medios y escrutinio público","Institutional and legal register":"Registro institucional y jurídico","Thought leadership":"Liderazgo de opinión","Mentoring across cultures":"Mentoría entre culturas"};
+const LEVEL_PROFILE_ES={"A1":"Sobrevivir en el trabajo — saludar, dar datos personales y de la empresa, manejar números y horas, hacer peticiones sencillas.","A2":"Gestionar el trabajo rutinario — correos cortos, citas, describir tareas rutinarias, pedidos e instrucciones simples.","B1":"Trabajar de forma autónoma — redactar los correos, presentar un proyecto, dirigir una reunión pequeña, tomar actas y resumir lo dicho.","B2":"Ser eficaz — argumentar en decisiones, negociar, presentar, gestionar quejas y redactar informes. Aquí entra la mediación.","C1":"Ser estratégico — influir, hacer pitch, informar entre equipos, liderar conversaciones difíciles, dirigir reuniones de alto riesgo.","C2":"Operar a nivel directivo — defender posturas, gestionar crisis, cambiar de registro a voluntad, mediar conflictos entre culturas."};
+const PART_LABEL_ES={A:"Input y práctica",B:"Procesamiento y ensayo",C:"Misión y validación"};
+const PHASE_ES={'Arrival / hook':'Llegada / gancho','Vocabulary':'Vocabulario','Chunks':'Chunks','Model dialogue':'Diálogo modelo','Gap-fill (Processing)':'Rellenar huecos (Procesamiento)','Mission (Interaction)':'Misión (Interacción)',"Don't give up! (Immediate Assessment)":'¡No te rindas! (Evaluación inmediata)','Culture & pragmatics':'Cultura y pragmática','Rewards / reflection':'Recompensas / reflexión'};
+const PHASE_NOTE_ES={'sets the scenario':'fija el escenario','the learner produces the lexis':'el alumno produce el léxico','the learner produces the phrases':'el alumno produce las frases','input — unless you add comprehension questions':'input — salvo que añadas preguntas de comprensión','written production against the grammar':'producción escrita contra la gramática','the authentic task — the main thing you assess':'la tarea auténtica — lo principal que evalúas','production plus retry, against the rubric':'producción más reintento, contra la rúbrica','input — sociolinguistic framing':'input — encuadre sociolingüístico','closing — nothing assessed here':'cierre — aquí no se evalúa nada'};
+const SKILL_ES={'Speaking':'Expresión oral','Listening':'Comprensión oral','Reading':'Comprensión escrita','Writing':'Expresión escrita','Interaction':'Interacción','Production':'Producción','Mediation':'Mediación','Negotiation':'Negociación','Listening/Speaking':'Comprensión oral/Expresión oral'};
+const GAM_ES={'Constraints':['Restricciones','límites y compensaciones'],'Emotions':['Emociones','curiosidad, orgullo, alegría'],'Narrative':['Narrativa','una historia coherente'],'Progression':['Progresión','sensación de crecimiento'],'Relationships':['Relaciones','vínculos sociales'],'Challenges':['Desafíos','tareas que exigen esfuerzo'],'Chance':['Azar','aleatoriedad'],'Competition':['Competición','ganar/perder frente a otros'],'Cooperation':['Cooperación','ganar juntos'],'Feedback':['Retroalimentación','respuesta instantánea'],'Resource acquisition':['Adquisición de recursos','obtener cosas útiles'],'Rewards':['Recompensas','beneficios por acciones'],'Transactions':['Transacciones','comercio / intercambio'],'Turns':['Turnos','participación secuencial'],'Win states':['Estados de victoria','objetivo para ganar'],'Achievements':['Logros','objetivos definidos cumplidos'],'Avatars':['Avatares','identidad visual'],'Badges':['Insignias','logros visuales'],'Boss fights':['Combates de jefe','barreras de nivel difíciles'],'Collections':['Colecciones','conjuntos por completar'],'Combat':['Combate','una batalla definida'],'Content unlocking':['Desbloqueo de contenido','acceso ganado'],'Gifting':['Regalos','compartir recompensas'],'Leaderboards':['Clasificaciones','rankings'],'Levels':['Niveles','pasos de progresión'],'Points / XP':['Puntos / XP','puntuación numérica'],'Quests':['Misiones','misiones orientadas a objetivos'],'Social graph':['Grafo social','red de pares'],'Teams':['Equipos','grupos que trabajan juntos'],'Virtual goods':['Bienes virtuales','activos con valor']};
+const CANDO_ES={"Can introduce myself and give basic details about my job and company.":"Sé presentarme y dar datos básicos sobre mi puesto y mi empresa.","Can understand simple questions and instructions spoken slowly and clearly.":"Sé entender preguntas e instrucciones sencillas dichas despacio y con claridad.","Can fill in a simple form with personal and company details.":"Sé rellenar un formulario sencillo con datos personales y de la empresa.","Can ask and answer simple questions about immediate needs at work.":"Sé hacer y responder preguntas sencillas sobre necesidades inmediatas en el trabajo.","Can introduce myself and my job, and exchange simple business information.":"Sé presentarme y presentar mi trabajo, e intercambiar información profesional sencilla.","Can write a short, simple email making a routine request.":"Sé escribir un correo breve y sencillo con una petición rutinaria.","Can understand simple instructions and short work messages.":"Sé entender instrucciones sencillas y mensajes breves de trabajo.","Can state simple requirements in a familiar work situation.":"Sé expresar requisitos sencillos en una situación de trabajo conocida.","Can make simple contributions and state requirements in a meeting.":"Sé hacer aportaciones sencillas y expresar requisitos en una reunión.","Can take and pass on most messages likely to arise during a normal working day.":"Sé tomar y transmitir la mayoría de los mensajes que surgen en una jornada laboral normal.","Can write a short, comprehensible note of request to a colleague.":"Sé escribir una nota de petición breve y comprensible a un compañero.","Can understand most short reports and product descriptions on familiar matters.":"Sé entender la mayoría de informes breves y descripciones de producto sobre temas conocidos.","Can make and receive telephone calls, arranging routine matters.":"Sé hacer y recibir llamadas telefónicas para gestionar asuntos rutinarios.","Can take part effectively in meetings and discussions on familiar business topics.":"Sé participar con eficacia en reuniones y debates sobre temas profesionales conocidos.","Can write a fairly complex email, letter or report, conveying information clearly.":"Sé escribir un correo, carta o informe bastante complejo, transmitiendo la información con claridad.","Can understand correspondence and reports, including some non-standard language.":"Sé entender correspondencia e informes, incluido algún lenguaje no estándar.","Can make and respond to suggestions, agreeing/disagreeing diplomatically.":"Sé hacer sugerencias y responder a ellas, mostrando acuerdo/desacuerdo con diplomacia.","Can give a clear presentation on a familiar topic and handle questions.":"Sé dar una presentación clara sobre un tema conocido y gestionar preguntas.","Can contribute effectively to meetings and argue persuasively for or against a case.":"Sé contribuir con eficacia a las reuniones y argumentar de forma persuasiva a favor o en contra de una postura.","Can follow discussion and argument with only occasional need for clarification.":"Sé seguir el debate y la argumentación necesitando aclaraciones solo de forma ocasional.","Can write most business letters, reports and proposals; such errors as occur do not impede understanding.":"Sé escribir la mayoría de cartas, informes y propuestas de empresa; los errores que aparecen no impiden la comprensión.","Can handle objections and reach agreement on complex matters.":"Sé gestionar objeciones y alcanzar acuerdos en asuntos complejos.","Can deliver a persuasive presentation and field challenging questions confidently.":"Sé dar una presentación persuasiva y afrontar preguntas difíciles con seguridad.","Can argue a complex case persuasively and handle sustained challenge with precision.":"Sé defender una postura compleja de forma persuasiva y afrontar una objeción sostenida con precisión.","Can follow rapid, idiomatic and implicit argument with ease.":"Sé seguir con facilidad una argumentación rápida, idiomática e implícita.","Can write for another person’s signature, matching register and house style.":"Sé escribir para la firma de otra persona, ajustándome a su registro y estilo de la casa.","Can mediate between parties in conflict, reformulating positions without distorting them.":"Sé mediar entre partes en conflicto, reformulando las posturas sin distorsionarlas.","Can present complex information convincingly to an expert audience.":"Sé presentar información compleja de forma convincente a un público experto."};
+function titleES(t){ return TITLE_ES[t]||TITLE_ES[t.replace(/&/g,'&amp;')]||t; }
+function skillES(s){ return SKILL_ES[s]||s; }
+
 function ce(tag,cls,txt){ const n=document.createElement(tag); if(cls) n.className=cls; if(txt!=null) n.textContent=txt; return n; }
 function $(id){ return document.getElementById(id); }
 function val(id){ return ($(id)?.value||'').trim(); }
@@ -1528,7 +1544,7 @@ let currentUnit=null;
 function splitSpec(t){ return (t||'').split(' · ').map(x=>x.trim()).filter(Boolean); }
 function renderSelectable(box,items,group,checked){
   box.innerHTML='';
-  if(!items.length){ box.appendChild(ce('p','lead','Open a lesson from the Goal Plan to load the unit’s parameters.')); return; }
+  if(!items.length){ box.appendChild(ce('p','lead',L('Open a lesson from the Goal Plan to load the unit’s parameters.','Abre una lección del Plan de objetivos para cargar los parámetros de la unidad.'))); return; }
   items.forEach(txt=>{
     const l=ce('label','chk'); const cb=ce('input'); cb.type='checkbox'; cb.value=txt; cb.dataset.group=group;
     cb.checked = checked? checked.indexOf(txt)>-1 : true;
@@ -1537,11 +1553,11 @@ function renderSelectable(box,items,group,checked){
 }
 function renderCriteria(items,checked){
   const box=$('rubBox'); box.innerHTML='';
-  if(!items.length){ box.appendChild(ce('p','lead','Open a lesson from the Goal Plan to load the unit’s rubric.')); return; }
+  if(!items.length){ box.appendChild(ce('p','lead',L('Open a lesson from the Goal Plan to load the unit’s rubric.','Abre una lección del Plan de objetivos para cargar la rúbrica de la unidad.'))); return; }
   items.forEach(txt=>{
     const row=ce('div','cando-item'); const cb=ce('input'); cb.type='checkbox'; cb.value=txt; cb.dataset.group='criteria';
     cb.checked = checked? checked.indexOf(txt)>-1 : true;
-    row.append(cb, ce('span','sk','criterion'), ce('span',null,txt)); box.appendChild(row);
+    var _sk=ce('span','sk'); _sk.appendChild(bsp('criterion','criterio')); row.append(cb, _sk, ce('span',null,txt)); box.appendChild(row);
   });
 }
 function loadUnitParams(u,saved){
@@ -1552,34 +1568,34 @@ function loadUnitParams(u,saved){
 }
 
 /* ---- Gamification chips ---- */
-function renderChips(box,arr,group){ box.innerHTML=''; arr.forEach(([label,desc])=>{ const l=ce('label','chk'); const cb=ce('input'); cb.type='checkbox'; cb.value=label; cb.dataset.group=group; const span=ce('span',null,label); span.appendChild(ce('small',null,desc)); l.append(cb,span); box.appendChild(l); }); }
+function renderChips(box,arr,group){ box.innerHTML=''; arr.forEach(([label,desc])=>{ const l=ce('label','chk'); const cb=ce('input'); cb.type='checkbox'; cb.value=label; cb.dataset.group=group; const e=(GAM_ES[label]||[label,desc]); const span=bsp(label,e[0]); const sm=document.createElement('small'); sm.appendChild(bsp(desc,e[1])); span.appendChild(sm); l.append(cb,span); box.appendChild(l); }); }
 
 /* ---- Can-do (by level) ---- */
-function renderCando(){ const lvl=val('f_level'); const box=$('candoBox'); box.innerHTML=''; (CANDO[lvl]||[]).forEach(([skill,txt])=>{ const row=ce('div','cando-item'); const cb=ce('input'); cb.type='checkbox'; cb.value=txt; cb.dataset.skill=skill; row.append(cb, ce('span','sk',skill), ce('span',null,txt)); box.appendChild(row); }); }
+function renderCando(){ const lvl=val('f_level'); const box=$('candoBox'); box.innerHTML=''; (CANDO[lvl]||[]).forEach(([skill,txt])=>{ const row=ce('div','cando-item'); const cb=ce('input'); cb.type='checkbox'; cb.value=txt; cb.dataset.skill=skill; const sk=ce('span','sk'); sk.appendChild(bsp(skill,skillES(skill))); row.append(cb, sk, bsp(txt, CANDO_ES[txt]||txt)); box.appendChild(row); }); }
 
 /* ---- Phases + timing ---- */
 let phaseRows=[];
 function currentDur(){ return parseInt(document.querySelector('input[name=dur]:checked').value,10); }
 function buildPhases(){ const box=$('phaseBox'); box.innerHTML=''; phaseRows=[]; PHASES.forEach(p=>{
   const meta=PHASE_META[p[0]]||{};
-  const row=ce('div','phase'); const left=ce('div'); const pt=ce('span','pt'); left.append(ce('div','pn',p[0]),pt);
-  const ev=ce('span','evchip '+(meta.evidence?'yes':'no'), meta.evidence?'● produces':'○ input');
-  ev.title = meta.evidence ? 'Something is produced here — you will have something to tick and to comment on.'
-                           : 'Nothing is produced here, so there is nothing to assess — input only.';
+  const row=ce('div','phase'); const left=ce('div'); const pt=ce('span','pt'); const pn=ce('div','pn'); pn.appendChild(bsp(p[0], PHASE_ES[p[0]]||p[0])); left.append(pn,pt);
+  const ev=ce('span','evchip '+(meta.evidence?'yes':'no')); ev.appendChild(meta.evidence?bsp('● produces','● produce'):bsp('○ input','○ input'));
+  ev.title = meta.evidence ? L('Something is produced here — you will have something to tick and to comment on.','Aquí se produce algo — tendrás algo que marcar y que comentar.')
+                           : L('Nothing is produced here, so there is nothing to assess — input only.','Aquí no se produce nada, así que no hay nada que evaluar — solo input.');
   const evwrap=ce('div'); evwrap.appendChild(ev); left.appendChild(evwrap);
-  left.appendChild(ce('div','evref', meta.note||''));
+  const _evref=ce('div','evref'); if(meta.note) _evref.appendChild(bsp(meta.note, PHASE_NOTE_ES[meta.note]||meta.note)); left.appendChild(_evref);
   const col=ce('div','pcol');
-  const sel=ce('select'); sel.appendChild(ce('option',null,'— choose an activity —'));
+  const sel=ce('select'); sel.appendChild(ce('option',null,L('— choose an activity —','— elige una actividad —')));
   (PHASE_OPTS[p[0]]||[]).forEach(o=>{ const op=ce('option',null,o); op.value=o; sel.appendChild(op); });
-  const other=ce('option',null,'Other (type below)'); other.value='__other'; sel.appendChild(other);
-  const ta=ce('textarea'); ta.placeholder='Activity, materials, interaction…';
+  const other=ce('option',null,L('Other (type below)','Otra (escribe abajo)')); other.value='__other'; sel.appendChild(other);
+  const ta=ce('textarea'); ta.placeholder=L('Activity, materials, interaction…','Actividad, materiales, interacción…');
   sel.addEventListener('change',()=>{ if(sel.value && sel.value!=='__other' && !ta.value.trim()) ta.value=sel.value+' — '; ta.focus(); });
   col.append(sel,ta); row.append(left,col); box.appendChild(row);
   phaseRows.push({name:p[0],m30:p[1],m50:p[2],m60:p[3],meta,pt,sel,ta,min:p[2]});
 }); updateTimes(); }
 function updateTimes(){ const d=currentDur(); let total=0; phaseRows.forEach(r=>{ r.min = d===60?r.m60:(d===50?r.m50:r.m30); r.pt.textContent=r.min+' min'; total+=r.min; });
-  const note = d===50 ? ' · 5 planning + 40 teaching + 5 validation & assignment' : '';
-  $('timeTotal').textContent='Total: '+total+' min ('+d+'-minute lesson)'+note; }
+  const note = d===50 ? L(' · 5 planning + 40 teaching + 5 validation & assignment',' · 5 planificación + 40 enseñanza + 5 validación y asignación') : '';
+  $('timeTotal').textContent=L('Total: ','Total: ')+total+L(' min (',' min (')+d+L('-minute lesson)','-minutos)')+note; }
 
 /* ---- Goal Plan · levels, sessions, status and coverage ---- */
 let currentLevel='B1', currentSession=null;
@@ -1641,18 +1657,20 @@ function renderLevels(){
     b.addEventListener('click',()=>{ currentLevel=lv; renderLevels(); renderGoal(); renderSources(); });
     nav.appendChild(b);
   });
-  $('lvlProfile').textContent=currentLevel+' — '+LEVEL_PROFILE[currentLevel];
+  $('lvlProfile').textContent=currentLevel+' — '+(LANG()==='es'?(LEVEL_PROFILE_ES[currentLevel]||LEVEL_PROFILE[currentLevel]):LEVEL_PROFILE[currentLevel]);
 }
 function renderGoal(){
   const box=$('goalGrid'); box.innerHTML=''; const saved=loadAll();
   for(let n=1;n<=SESSIONS_PER_LEVEL;n++){
     const sp=sessionSpec(currentLevel,n), st=saved[keyOf(currentLevel,n)], ready=!!(st&&st.minimum&&st.minimum.met);
     const b=ce('button','gcard'); b.type='button';
-    const top=ce('div','gtop'); top.append(ce('span','gn','Block '+sp.block+' · Class '+sp.inBlock+'/12'), ce('span','lvl',currentLevel+' · U'+sp.unitNo));
-    b.append(top, ce('h3','gt',sp.unit.title), ce('div','gsc',sp.part+' · '+sp.label+'  ·  lesson '+n+'/36'));
-    b.appendChild(ce('div','gsk',(sp.unit.skills||[]).join(' · ')+(sp.unit.mediation?' · mediation':'')));
-    b.appendChild(ce('span','gst'+(st?(ready?' ready':' draft'):''), st?(ready?'Ready for class':'Draft'):'Not planned'));
-    if(sp.unit.mediation) b.appendChild(ce('span','gst','Mediation'));
+    const _lab=LANG()==='es'?PART_LABEL_ES[sp.part]:sp.label;
+    const top=ce('div','gtop'); top.append(ce('span','gn',L('Block ','Bloque ')+sp.block+L(' · Class ',' · Clase ')+sp.inBlock+'/12'), ce('span','lvl',currentLevel+' · U'+sp.unitNo));
+    const _gt=ce('h3','gt'); _gt.appendChild(bsp(sp.unit.title, titleES(sp.unit.title)));
+    b.append(top, _gt, ce('div','gsc',sp.part+' · '+_lab+'  ·  '+L('lesson ','lección ')+n+'/36'));
+    b.appendChild(ce('div','gsk',(sp.unit.skills||[]).map(x=>LANG()==='es'?skillES(x):x).join(' · ')+(sp.unit.mediation?L(' · mediation',' · mediación'):'')));
+    b.appendChild(ce('span','gst'+(st?(ready?' ready':' draft'):''), st?(ready?L('Ready for class','Lista para clase'):L('Draft','Borrador')):L('Not planned','Sin planificar')));
+    if(sp.unit.mediation) b.appendChild(ce('span','gst',L('Mediation','Mediación')));
     b.addEventListener('click',()=>openSession(currentLevel,n));
     box.appendChild(b);
   }
@@ -1672,11 +1690,11 @@ function renderCoverage(saved){
       if((sp.unit.skills||[]).indexOf(f)>-1 || (st.homework&&st.homework.focus===f)) c++;
     }
     const d=ce('div'), b=ce('b',null,String(c)); if(c<2) b.className='no';
-    d.append(b, ce('span',null,f+(c<2?' · needs ≥2':' · covered')));
+    d.append(b, ce('span',null,(LANG()==='es'?skillES(f):f)+(c<2?L(' · needs ≥2',' · faltan ≥2'):L(' · covered',' · cubierta'))));
     box.appendChild(d);
   });
   const d=ce('div'), b=ce('b',null,String(med)); if(!med) b.className='no';
-  d.append(b, ce('span',null,'Mediation'+(med?' · planned':' · none yet')));
+  d.append(b, ce('span',null,L('Mediation','Mediación')+(med?L(' · planned',' · planificada'):L(' · none yet',' · ninguna aún'))));
   box.appendChild(d);
 }
 function openSession(lv,n){
@@ -1712,7 +1730,7 @@ function openSession(lv,n){
   const src=(saved&&saved.source)||{};
   $('f_srctype').value=src.type||'Article / URL'; $('f_srcref').value=src.reference||''; $('f_srcnotes').value=src.part||'';
   $('f_materials').value=(saved&&saved.materials)||''; $('briefOut').hidden=true;
-  $('aiState').textContent=AI.enabled?'':'No AI endpoint configured on this board — “Develop” produces a brief you can paste into Claude.';
+  $('aiState').textContent=AI.enabled?'':L('No AI endpoint configured on this board — “Develop” produces a brief you can paste into Claude.','Sin endpoint de IA configurado en este board — «Desarrollar» produce un brief que puedes pegar en Claude.');
   const hw=(saved&&saved.homework)?saved.homework:seedHomework(u,sp.part);
   $('f_hwtitle').value=hw.title||''; $('f_hwinstructions').value=hw.instructions||'';
   $('f_hwfocus').value=hw.focus||'Vocabulary';
@@ -1797,22 +1815,22 @@ function briefText(pl){
 }
 async function developMaterials(){
   const pl=developPayload();
-  if(!pl.source.reference){ $('aiState').textContent='Add the source reference first — the URL or the file name.'; return; }
+  if(!pl.source.reference){ $('aiState').textContent=L('Add the source reference first — the URL or the file name.','Añade primero la referencia de la fuente — la URL o el nombre del archivo.'); return; }
   if(AI.enabled){
-    $('aiState').textContent='Developing from your source…';
+    $('aiState').textContent=L('Developing from your source…','Desarrollando desde tu fuente…');
     try{
       const out=await aiCall('/develop-lesson',pl);
       $('f_materials').value=[out.model_dialogue,'',(out.gap_fill||[]).join('\n'),'',(out.comprehension||[]).join('\n'),'',out.mission_brief,
         (out.gaps&&out.gaps.length)?('\n\nGAPS — the source does not cover: '+out.gaps.join(' · ')):''].join('\n');
-      $('aiState').textContent='✓ Materials developed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' gap(s) declared'):'');
+      $('aiState').textContent=L('✓ Materials developed','✓ Materiales desarrollados')+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+L(' gap(s) declared',' laguna(s) declarada(s)')):'');
       renderMinimum(); return;
-    }catch(e){ $('aiState').textContent='! '+e.message+' — falling back to the brief below.'; }
+    }catch(e){ $('aiState').textContent='! '+e.message+L(' — falling back to the brief below.',' — se recurre al brief de abajo.'); }
   }
   const t=briefText(pl);
   $('briefOut').textContent=t; $('briefOut').hidden=false;
   copyText(t, ok=>{ $('aiState').textContent = ok
-    ? 'Brief copied — paste it into Claude, then paste the materials back below. (No AI endpoint configured on this board.)'
-    : 'Brief ready below — select and copy it, then paste the materials back. (No AI endpoint configured.)'; });
+    ? L('Brief copied — paste it into Claude, then paste the materials back below. (No AI endpoint configured on this board.)','Brief copiado — pégalo en Claude y luego pega aquí abajo los materiales. (Sin endpoint de IA configurado en este board.)')
+    : L('Brief ready below — select and copy it, then paste the materials back. (No AI endpoint configured.)','Brief listo abajo — selecciónalo y cópialo, luego pega aquí los materiales. (Sin endpoint de IA configurado.)'); });
 }
 function copyText(t,cb){
   try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>cb(true),()=>cb(false)); return; } }catch(e){}
@@ -1826,17 +1844,17 @@ function copyText(t,cb){
    not be able to fetch the curriculum payload or the integration spec at all, whatever the UI does. */
 const ROLES={
   teacher:{ tabs:['panel-builder','panel-goal'], downloads:['pdf'],
-    desc:'Plans, teaches and validates. Keeps the lesson plan as a PDF — not the curriculum, not the code.' },
+    desc:'Plans, teaches and validates. Keeps the lesson plan as a PDF — not the curriculum, not the code.', descEs:'Planifica, enseña y valida. Conserva el plan de lección en PDF — no el currículo, no el código.' },
   it:{ tabs:['panel-builder','panel-goal','panel-it'], downloads:['pdf','json','csv','spec'],
-    desc:'Wires the board into the dashboard. Takes the plan JSON and the integration spec.' },
+    desc:'Wires the board into the dashboard. Takes the plan JSON and the integration spec.', descEs:'Conecta el board al dashboard. Se lleva el JSON del plan y la especificación de integración.' },
   product:{ tabs:['panel-goal'], downloads:['overview'],
-    desc:'Owns the product. Takes the curriculum overview to explain what is being taught and why.' }
+    desc:'Owns the product. Takes the curriculum overview to explain what is being taught and why.', descEs:'Es dueño del producto. Se lleva el resumen del currículo para explicar qué se enseña y por qué.' }
 };
 let role='teacher';
 const DL={pdf:'btnPdf',json:'btnJson',csv:'btnCsv',spec:'btnSpec',overview:'btnOverview'};
 function applyRole(){
   const r=ROLES[role];
-  $('roleDesc').textContent=r.desc;
+  $('roleDesc').textContent=(LANG()==='es'&&r.descEs)?r.descEs:r.desc;
   document.querySelectorAll('#mainTabs button').forEach(b=>{ b.hidden = r.tabs.indexOf(b.dataset.panel)<0; });
   Object.keys(DL).forEach(k=>{ const el=$(DL[k]); if(el) el.hidden = r.downloads.indexOf(k)<0; });
   const open=[...document.querySelectorAll('.panel')].find(p=>!p.hidden);
@@ -1892,7 +1910,7 @@ function integrationSpec(){
 }
 
 /* ---- Validation · three states over what was planned ---- */
-const STATES=[['done','✓ Achieved'],['review','! To reinforce'],['pending','▸ Pending']];
+const STATES=[['done','✓ Achieved','✓ Logrado'],['review','! To reinforce','! Por reforzar'],['pending','▸ Pending','▸ Pendiente']];
 let valKey=null;
 function renderPast(){
   const box=$('pastList'), all=loadAll(), keys=Object.keys(all).filter(k=>k.indexOf('src:')!==0).sort((a,b)=>{
@@ -1900,15 +1918,15 @@ function renderPast(){
     return la===lb ? (+na)-(+nb) : LEVEL_ORDER.indexOf(la)-LEVEL_ORDER.indexOf(lb);
   });
   box.innerHTML='';
-  if(!keys.length){ box.appendChild(ce('p','lead','Nothing saved yet. Open a lesson from the Goal Plan, fill it in and press “Save plan” — only saved lessons appear here to be validated.')); return; }
+  if(!keys.length){ box.appendChild(ce('p','lead',L('Nothing saved yet. Open a lesson from the Goal Plan, fill it in and press “Save plan” — only saved lessons appear here to be validated.','Nada guardado aún. Abre una lección del Plan de objetivos, complétala y pulsa «Guardar plan» — solo las lecciones guardadas aparecen aquí para validarse.'))); return; }
   const list=ce('div','past');
   keys.forEach(k=>{
     const pl=all[k], sp=sessionSpec(pl.session.level,pl.session.lesson);
     const b=ce('button','pastrow'); b.type='button';
     const left=ce('div');
-    left.appendChild(ce('div','pl',pl.session.level+' · lesson '+pl.session.lesson+'/36 — '+sp.unit.title));
-    left.appendChild(ce('div','ps','pass '+pl.session.part+' · '+sp.label+(pl.homework&&pl.homework.class_date?(' · taught '+pl.homework.class_date):'')));
-    b.append(left, ce('span','gst'+(pl.validation?' ready':''), pl.validation?'Validated':'Not validated'));
+    left.appendChild(ce('div','pl',pl.session.level+L(' · lesson ',' · lección ')+pl.session.lesson+'/36 — '+sp.unit.title));
+    left.appendChild(ce('div','ps',L('pass ','pasada ')+pl.session.part+' · '+(LANG()==='es'?PART_LABEL_ES[sp.part]:sp.label)+(pl.homework&&pl.homework.class_date?(L(' · taught ',' · impartida ')+pl.homework.class_date):'')));
+    b.append(left, ce('span','gst'+(pl.validation?' ready':''), pl.validation?L('Validated','Validada'):L('Not validated','Sin validar')));
     b.addEventListener('click',()=>openValidation(k));
     list.appendChild(b);
   });
@@ -1919,24 +1937,24 @@ function openValidation(k){
   const all=loadAll(), pl=all[k]; if(!pl) return;
   valKey=k;
   const sp=sessionSpec(pl.session.level,pl.session.lesson);
-  $('valHead').textContent=pl.session.level+' · lesson '+pl.session.lesson+'/36 · pass '+pl.session.part+' — '+sp.unit.title+'. '+
-    'Mark each criterion. What you leave as Pending is preloaded into the next lesson of this unit.';
+  $('valHead').textContent=pl.session.level+L(' · lesson ',' · lección ')+pl.session.lesson+'/36 · '+L('pass ','pasada ')+pl.session.part+' — '+sp.unit.title+'. '+
+    L('Mark each criterion. What you leave as Pending is preloaded into the next lesson of this unit.','Marca cada criterio. Lo que dejes como Pendiente se precarga en la siguiente lección de esta unidad.');
   /* anything carried in from the previous lesson of the same unit */
   const carry=$('carryBox'); carry.innerHTML='';
   const prev=all[keyOf(pl.session.level,pl.session.lesson-1)];
   if(prev&&prev.validation&&pl.session.part!=='A'){
     const p=Object.keys(prev.validation.states||{}).filter(c=>prev.validation.states[c]==='pending');
-    if(p.length){ const w=ce('p','warn'); w.innerHTML='<b>Carried in from lesson '+(pl.session.lesson-1)+':</b> '+p.join(' · ')+'. These were left pending last time.'; carry.appendChild(w); }
+    if(p.length){ const w=ce('p','warn'); w.innerHTML='<b>'+L('Carried in from lesson ','Arrastrado de la lección ')+(pl.session.lesson-1)+':</b> '+p.join(' · ')+L('. These were left pending last time.','. Quedaron pendientes la última vez.'); carry.appendChild(w); }
   }
   const box=$('valCriteria'); box.innerHTML='';
   const prevStates=(pl.validation&&pl.validation.states)||{};
   criteriaOf(pl).forEach((c,i)=>{
     const row=ce('div','critrow'); row.appendChild(ce('div','ct',c));
     const tri=ce('div','tri');
-    STATES.forEach(([v,label])=>{
+    STATES.forEach(([v,label,labelEs])=>{
       const l=ce('label','on-'+v); const r=ce('input'); r.type='radio'; r.name='crit'+i; r.value=v; r.dataset.crit=c;
       if(prevStates[c]===v) r.checked=true;
-      l.append(r, ce('span',null,label)); tri.appendChild(l);
+      l.append(r, bsp(label,labelEs)); tri.appendChild(l);
     });
     row.appendChild(tri); box.appendChild(row);
   });
@@ -1985,17 +2003,17 @@ function renderOutputs(pl,states){
   Object.keys(rows).forEach(k=>{
     ['covered','comment'].forEach(kind=>{
       const txt=rows[k][kind]; if(!txt) return;
-      box.appendChild(fieldOut(k.toUpperCase()+' · '+(kind==='covered'?'covered topics':'comments'), txt));
+      box.appendChild(fieldOut(k.toUpperCase()+' · '+(kind==='covered'?L('covered topics','temas cubiertos'):L('comments','comentarios')), txt));
     });
   });
-  box.appendChild(fieldOut('PREPARATION TASK', prepTask(pl,states)));
+  box.appendChild(fieldOut(L('PREPARATION TASK','TAREA DE PREPARACIÓN'), prepTask(pl,states)));
   $('outSec').hidden=false;
 }
 function fieldOut(name,text){
   const d=ce('div','fieldout'), head=ce('div','fl');
   head.appendChild(ce('span','fn',name));
-  const b=ce('button',null,'Copy'); b.type='button';
-  b.addEventListener('click',()=>copyText(text,ok=>{ b.textContent=ok?'Copied':'Select & copy'; setTimeout(()=>{b.textContent='Copy';},1600); }));
+  const b=ce('button',null,L('Copy','Copiar')); b.type='button';
+  b.addEventListener('click',()=>copyText(text,ok=>{ b.textContent=ok?L('Copied','Copiado'):L('Select & copy','Selecciona y copia'); setTimeout(()=>{b.textContent=L('Copy','Copiar');},1600); }));
   head.appendChild(b); d.append(head, ce('p',null,text)); return d;
 }
 function csvOf(){
@@ -2022,14 +2040,14 @@ function loadSources(lv){ const all=loadAll(); return (all[srcKey(lv)]&&all[srcK
 function saveSources(lv,items){ const all=loadAll(); all[srcKey(lv)]={items:items}; saveAll(all); }
 function renderSources(){
   const box=$('srcList'), items=loadSources(currentLevel); box.innerHTML='';
-  if(!items.length){ box.appendChild(ce('p','lead','No sources yet for '+currentLevel+'. What this course is built on goes here.')); return; }
+  if(!items.length){ box.appendChild(ce('p','lead',L('No sources yet for ','Aún no hay fuentes para ')+currentLevel+L('. What this course is built on goes here.','. Aquí va aquello sobre lo que se construye este curso.'))); return; }
   items.forEach((it,i)=>{
     const row=ce('div','srcrow');
     row.appendChild(ce('span','sk',it.kind));
     const mid=ce('div'); mid.appendChild(ce('div','sr',it.reference));
     if(it.note) mid.appendChild(ce('div','sn',it.note));
     row.appendChild(mid);
-    const del=ce('button',null,'Remove'); del.type='button';
+    const del=ce('button',null,L('Remove','Quitar')); del.type='button';
     del.addEventListener('click',()=>{ const arr=loadSources(currentLevel); arr.splice(i,1); saveSources(currentLevel,arr); renderSources(); });
     row.appendChild(del); box.appendChild(row);
   });
@@ -2062,22 +2080,22 @@ function goalBriefText(lv,items){
 }
 async function developGoalPlan(){
   const items=loadSources(currentLevel);
-  if(!items.length){ $('goalAiState').textContent='Add at least one source first.'; return; }
+  if(!items.length){ $('goalAiState').textContent=L('Add at least one source first.','Añade al menos una fuente primero.'); return; }
   const payload={ level:currentLevel, units:unitsOf(currentLevel).map(u=>({n:u.n,title:u.title,mission:u.mission})),
                   sources:items, constraints:['objectives, can-do targets and missions are fixed',
                   'a source may change the scenario and the examples only','derive, do not reproduce','return gaps[] for units the sources cannot ground'] };
   if(AI.enabled){
-    $('goalAiState').textContent='Refreshing the Goal Plan…';
+    $('goalAiState').textContent=L('Refreshing the Goal Plan…','Refrescando el Plan de objetivos…');
     try{ const out=await aiCall('/develop-goal-plan',payload);
-      $('goalAiState').textContent='✓ '+(out.units||[]).length+' unit(s) refreshed'+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+' left untouched'):'');
+      $('goalAiState').textContent='✓ '+(out.units||[]).length+L(' unit(s) refreshed',' unidad(es) refrescada(s)')+((out.gaps&&out.gaps.length)?(' · '+out.gaps.length+L(' left untouched',' sin tocar')):'');
       return;
-    }catch(e){ $('goalAiState').textContent='! '+e.message+' — falling back to the brief below.'; }
+    }catch(e){ $('goalAiState').textContent='! '+e.message+L(' — falling back to the brief below.',' — se recurre al brief de abajo.'); }
   }
   const t=goalBriefText(currentLevel,items);
   $('goalBrief').textContent=t; $('goalBrief').hidden=false;
   copyText(t,ok=>{ $('goalAiState').textContent = ok
-    ? 'Brief copied — paste it into Claude to get the refreshed scenarios. (No AI endpoint configured on this board.)'
-    : 'Brief ready below — select and copy it. (No AI endpoint configured.)'; });
+    ? L('Brief copied — paste it into Claude to get the refreshed scenarios. (No AI endpoint configured on this board.)','Brief copiado — pégalo en Claude para obtener los escenarios refrescados. (Sin endpoint de IA configurado en este board.)')
+    : L('Brief ready below — select and copy it. (No AI endpoint configured.)','Brief listo abajo — selecciónalo y cópialo. (Sin endpoint de IA configurado.)'); });
 }
 
 /* ---- Start here · level + skill, and the board finds the lesson ----
@@ -2096,13 +2114,13 @@ function pickLesson(lv,skill){
 }
 function startLesson(){
   const lv=$('s_level').value, skill=$('s_skill').value, pick=pickLesson(lv,skill);
-  if(!pick){ $('startState').textContent='No unit at '+lv+' works '+skill+' — try another skill.'; return; }
+  if(!pick){ $('startState').textContent=L('No unit at ','Ninguna unidad de ')+lv+L(' works ',' trabaja ')+skill+L(' — try another skill.',' — prueba otra destreza.'); return; }
   currentLevel=lv; renderLevels(); renderGoal(); renderSources();
   const sp=sessionSpec(lv,pick.n);
   openSession(lv,pick.n);
-  $('startState').textContent=''+lv+' · lesson '+pick.n+'/36 — '+sp.unit.title+' · pass '+sp.part+' ('+sp.label+')'
-    + (skill?('  ·  one of '+pick.total+' that work '+skill):'')
-    + (pick.replanning?'  ·  already planned once — you are editing it':'');
+  $('startState').textContent=''+lv+L(' · lesson ',' · lección ')+pick.n+'/36 — '+sp.unit.title+L(' · pass ',' · pasada ')+sp.part+' ('+(LANG()==='es'?PART_LABEL_ES[sp.part]:sp.label)+')'
+    + (skill?(L('  ·  one of ','  ·  una de ')+pick.total+L(' that work ',' que trabajan ')+skill):'')
+    + (pick.replanning?L('  ·  already planned once — you are editing it','  ·  ya planificada una vez — la estás editando'):'');
 }
 
 /* ---- Talketika minimum · before class ---- */
@@ -2110,11 +2128,11 @@ function minimumItems(){
   const cando = document.querySelectorAll('#candoBox input:checked').length>0 || val('f_cando')!=='';
   const prod  = phaseRows.some(r=>r.meta&&r.meta.evidence&&r.ta.value.trim()!=='');
   return [
-    {ok:cando, label:'Objective', hint:'Tick at least one can-do target in section B, or write your own.'},
-    {ok:val('f_mission')!=='', label:'Mission', hint:'The authentic task the learner must complete (section E).'},
-    {ok:document.querySelectorAll('input[data-group="criteria"]:checked').length>0 || val('f_rubric')!=='', label:'Success criteria', hint:'Tick at least one criterion from the unit rubric in section E.'},
-    {ok:prod, label:'One production phase', hint:'Write the activity for Vocabulary, Chunks, Gap-fill, Mission or Don\'t give up!'},
-    {ok:val('f_hwtitle')!=='' && val('f_hwinstructions')!=='', label:'Homework', hint:'Title and instructions for the preparation task (section F).'}
+    {ok:cando, label:L('Objective','Objetivo'), hint:L('Tick at least one can-do target in section B, or write your own.','Marca al menos un can-do en la sección B, o escribe el tuyo.')},
+    {ok:val('f_mission')!=='', label:L('Mission','Misión'), hint:L('The authentic task the learner must complete (section E).','La tarea auténtica que el alumno debe completar (sección E).')},
+    {ok:document.querySelectorAll('input[data-group="criteria"]:checked').length>0 || val('f_rubric')!=='', label:L('Success criteria','Criterios de logro'), hint:L('Tick at least one criterion from the unit rubric in section E.','Marca al menos un criterio de la rúbrica de la unidad en la sección E.')},
+    {ok:prod, label:L('One production phase','Una fase de producción'), hint:L('Write the activity for Vocabulary, Chunks, Gap-fill, Mission or Don\'t give up!','Escribe la actividad de Vocabulario, Chunks, Rellenar huecos, Misión o ¡No te rindas!')},
+    {ok:val('f_hwtitle')!=='' && val('f_hwinstructions')!=='', label:L('Homework','Deberes'), hint:L('Title and instructions for the preparation task (section F).','Título e instrucciones de la tarea de preparación (sección F).')}
   ];
 }
 function renderMinimum(){
@@ -2128,8 +2146,8 @@ function renderMinimum(){
   });
   const done=items.filter(i=>i.ok).length;
   $('minState').textContent = done===items.length
-    ? '✓ Ready for class — the lesson, the validation and the homework describe the same thing.'
-    : ''+done+'/'+items.length+' — you can still teach; these are the gaps.';
+    ? L('✓ Ready for class — the lesson, the validation and the homework describe the same thing.','✓ Lista para clase — la lección, la validación y los deberes describen lo mismo.')
+    : ''+done+'/'+items.length+L(' — you can still teach; these are the gaps.',' — aún puedes enseñar; estas son las carencias.');
 }
 function minimumState(){ const items=minimumItems(); return {met:items.every(i=>i.ok), missing:items.filter(i=>!i.ok).map(i=>i.label)}; }
 
@@ -2143,8 +2161,8 @@ function dueDate(){
 function renderDue(){
   const dt=dueDate();
   $('hwDue').textContent = dt
-    ? 'Due '+dt.toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' — '+$('f_hwspacing').value+' days after class'
-    : 'Set the class date to get the spaced due date (+1 / +3 / +7)';
+    ? L('Due ','Entrega ')+dt.toLocaleDateString(LANG()==='es'?'es-ES':undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+L(' — ',' — ')+$('f_hwspacing').value+L(' days after class',' días después de la clase')
+    : L('Set the class date to get the spaced due date (+1 / +3 / +7)','Fija la fecha de clase para obtener la entrega espaciada (+1 / +3 / +7)');
 }
 
 /* ---- Build the plan object ---- */
@@ -2158,8 +2176,8 @@ function gamState(){
   const on=Object.keys(GAM_DISC).filter(gamOpen);
   const n=on.reduce((a,g)=>a+gather(g).length,0);
   $('gamState').textContent = on.length
-    ? ''+n+' selected across '+on.join(', ')+' — included in the plan.'
-    : 'Closed — no gamification in this plan. Open a block to include it.';
+    ? ''+n+L(' selected across ',' seleccionados en ')+on.join(', ')+L(' — included in the plan.',' — incluidos en el plan.')
+    : L('Closed — no gamification in this plan. Open a block to include it.','Cerrado — sin gamificación en este plan. Abre un bloque para incluirla.');
 }
 function buildPlan(){
   const due=dueDate();
@@ -2235,20 +2253,20 @@ $('btnPdf').addEventListener('click',()=>{ renderPrint(buildPlan()); document.bo
 window.addEventListener('afterprint',()=>document.body.classList.remove('print-plan'));
 
 /* ---- Reset ---- */
-$('btnReset').addEventListener('click',()=>{ if(!confirm('Clear the form?')) return; document.querySelectorAll('#panel-builder input[type=text],#panel-builder textarea').forEach(i=>i.value=''); document.querySelectorAll('#panel-builder input[type=checkbox]').forEach(c=>c.checked=false); $('f_date').value=''; document.querySelector('input[name=dur][value="50"]').checked=true; document.querySelector('input[name=hwkind][value="production"]').checked=true; currentSession=null; currentUnit=null; renderCando(); renderSelectable($('vocBox'),[],'vocabulary'); renderSelectable($('chkBox'),[],'chunks'); renderCriteria([]); phaseRows.forEach(r=>{r.ta.value='';r.sel.selectedIndex=0;}); updateTimes(); renderDue(); renderMinimum(); });
+$('btnReset').addEventListener('click',()=>{ if(!confirm(L('Clear the form?','¿Vaciar el formulario?'))) return; document.querySelectorAll('#panel-builder input[type=text],#panel-builder textarea').forEach(i=>i.value=''); document.querySelectorAll('#panel-builder input[type=checkbox]').forEach(c=>c.checked=false); $('f_date').value=''; document.querySelector('input[name=dur][value="50"]').checked=true; document.querySelector('input[name=hwkind][value="production"]').checked=true; currentSession=null; currentUnit=null; renderCando(); renderSelectable($('vocBox'),[],'vocabulary'); renderSelectable($('chkBox'),[],'chunks'); renderCriteria([]); phaseRows.forEach(r=>{r.ta.value='';r.sel.selectedIndex=0;}); updateTimes(); renderDue(); renderMinimum(); });
 
 /* ---- Save the session (this browser only) ---- */
 $('btnSave').addEventListener('click',()=>{
-  if(!currentSession){ alert('Open a session from the Goal Plan first — that is what the plan is saved against.'); return; }
+  if(!currentSession){ alert(L('Open a session from the Goal Plan first — that is what the plan is saved against.','Abre primero una sesión del Plan de objetivos — es contra lo que se guarda el plan.')); return; }
   const k=keyOf(currentSession.level,currentSession.n), all=loadAll();
   all[k]=buildPlan(); saveAll(all); renderGoal(); renderPast();
-  $('minState').textContent='Saved — '+currentSession.level+' lesson '+currentSession.n+'/36 (block '+currentSession.block+', class '+currentSession.inBlock+'/12). '+(all[k].minimum.met?'Ready for class.':'Gaps: '+all[k].minimum.missing.join(', ')+'.');
+  $('minState').textContent=L('Saved — ','Guardado — ')+currentSession.level+L(' lesson ',' lección ')+currentSession.n+'/36 ('+L('block ','bloque ')+currentSession.block+L(', class ',', clase ')+currentSession.inBlock+'/12). '+(all[k].minimum.met?L('Ready for class.','Lista para clase.'):L('Gaps: ','Carencias: ')+all[k].minimum.missing.join(', ')+'.');
 });
 $('btnDevelop').addEventListener('click',developMaterials);
 $('btnStart').addEventListener('click',startLesson);
 $('s_level').addEventListener('change',()=>{ $('startState').textContent=''; });
 $('btnSrcAdd').addEventListener('click',()=>{
-  const ref=val('g_srcref'); if(!ref){ $('goalAiState').textContent='A reference is needed — a URL, a file name or the search terms.'; return; }
+  const ref=val('g_srcref'); if(!ref){ $('goalAiState').textContent=L('A reference is needed — a URL, a file name or the search terms.','Hace falta una referencia — una URL, un nombre de archivo o los términos de búsqueda.'); return; }
   const items=loadSources(currentLevel);
   items.push({kind:$('g_srckind').value, reference:ref, note:val('g_srcnote')});
   saveSources(currentLevel,items); $('g_srcref').value=''; $('g_srcnote').value='';
@@ -2268,14 +2286,14 @@ $('btnValSave').addEventListener('click',()=>{
   pl.validation={ states:states, note:val('f_valnote'), marked:Object.keys(states).length, of:criteriaOf(pl).length };
   all[valKey]=pl; saveAll(all); renderPast(); renderOutputs(pl,states);
   const pend=Object.keys(states).filter(c=>states[c]==='pending').length;
-  $('valState').textContent='Validated — '+pl.validation.marked+'/'+pl.validation.of+' criteria marked'+
-    (pend?(' · '+pend+' pending, preloaded into the next lesson of this unit.'):' · nothing left pending.');
+  $('valState').textContent=L('Validated — ','Validada — ')+pl.validation.marked+'/'+pl.validation.of+L(' criteria marked',' criterios marcados')+
+    (pend?(' · '+pend+L(' pending, preloaded into the next lesson of this unit.',' pendientes, precargados en la siguiente lección de esta unidad.')):L(' · nothing left pending.',' · nada queda pendiente.'));
 });
 $('btnCsv').addEventListener('click',()=>{
   const blob=new Blob([csvOf()],{type:'text/csv'});
   const a=ce('a'); a.href=URL.createObjectURL(blob); a.download='validated-lessons.csv'; a.click(); URL.revokeObjectURL(a.href);
 });
-$('btnGoalReset').addEventListener('click',()=>{ if(!confirm('Clear every saved session in this browser?')) return; saveAll({}); currentSession=null; renderGoal(); });
+$('btnGoalReset').addEventListener('click',()=>{ if(!confirm(L('Clear every saved session in this browser?','¿Borrar todas las sesiones guardadas en este navegador?'))) return; saveAll({}); currentSession=null; renderGoal(); });
 
 /* ---- Init ---- */
 renderChips($('dynBox'),DYNAMICS,'dynamics');
@@ -2292,9 +2310,10 @@ renderPast();
 renderSources();
 gamState();
 applyRole();
-$('aiState').textContent=AI.enabled?'':'No AI endpoint configured on this board — “Develop” produces a brief you can paste into Claude.';
+$('aiState').textContent=AI.enabled?'':L('No AI endpoint configured on this board — “Develop” produces a brief you can paste into Claude.','Sin endpoint de IA configurado en este board — «Desarrollar» produce un brief que puedes pegar en Claude.');
 renderDue();
 renderMinimum();
+window.__reRenderLang=function(){ try{ renderLevels(); renderGoal(); updateTimes(); gamState(); renderDue(); renderMinimum(); renderPast(); renderSources(); applyRole(); phaseRows.forEach(function(r){ if(r.sel&&r.sel.options.length){ r.sel.options[0].text=L('— choose an activity —','— elige una actividad —'); var last=r.sel.options[r.sel.options.length-1]; if(last&&last.value==='__other') last.text=L('Other (type below)','Otra (escribe abajo)'); } if(r.ta) r.ta.placeholder=L('Activity, materials, interaction…','Actividad, materiales, interacción…'); }); }catch(e){} };
 document.querySelectorAll('input[name=dur]').forEach(r=>r.addEventListener('change',updateTimes));
 $('f_level').addEventListener('change',()=>{ renderCando(); renderMinimum(); });
 ['f_hwspacing','f_date'].forEach(id=>$(id).addEventListener('change',renderDue));
